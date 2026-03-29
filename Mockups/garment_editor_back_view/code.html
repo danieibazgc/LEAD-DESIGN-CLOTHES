@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes - Editor</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#31447b",
+              "outline": "#737686",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed-dim": "#b4c5ff",
+              "secondary-container": "#acbfff",
+              "on-secondary-fixed": "#00174b",
+              "background": "#f7f9fb",
+              "primary-fixed-dim": "#b4c5ff",
+              "on-secondary": "#ffffff",
+              "surface-container": "#eceef0",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2d3133",
+              "surface": "#f7f9fb",
+              "on-surface-variant": "#434655",
+              "on-primary-fixed-variant": "#003ea8",
+              "inverse-primary": "#b4c5ff",
+              "tertiary-fixed-dim": "#a4d64c",
+              "primary": "#004ac6",
+              "tertiary-container": "#537800",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed": "#dbe1ff",
+              "on-surface": "#191c1e",
+              "surface-container-low": "#f2f4f6",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#dbe1ff",
+              "surface-container-high": "#e6e8ea",
+              "on-tertiary-fixed-variant": "#354e00",
+              "surface-variant": "#e0e3e5",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "secondary": "#495c95",
+              "tertiary-fixed": "#bff365",
+              "surface-bright": "#f7f9fb",
+              "on-secondary-container": "#394c84",
+              "on-primary-fixed": "#00174b",
+              "on-background": "#191c1e",
+              "on-primary-container": "#eeefff",
+              "surface-tint": "#0053db",
+              "primary-container": "#2563eb",
+              "on-tertiary-fixed": "#131f00",
+              "tertiary": "#405e00",
+              "on-tertiary-container": "#d3ff88",
+              "error": "#ba1a1a",
+              "outline-variant": "#c3c6d7"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-line-separation {
+            box-shadow: none !important;
+            border: none !important;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed-dim overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#f7f9fb] dark:bg-[#121416] flex justify-between items-center w-full px-8 h-16 fixed top-0 z-50 no-line-separation">
+<div class="flex items-center gap-8">
+<span class="font-manrope font-extrabold text-xl tracking-tighter text-[#191c1e] dark:text-[#e1e2e4]">LEAD Design Clothes</span>
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="font-manrope font-bold tracking-tighter text-[#44474a] dark:text-[#c4c7ca] hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors px-3 py-1 rounded-lg" href="#">Studio</a>
+<a class="font-manrope font-bold tracking-tighter text-[#2563EB] dark:text-[#3b82f6] border-b-2 border-[#2563EB] px-3 py-1" href="#">Editor</a>
+<a class="font-manrope font-bold tracking-tighter text-[#44474a] dark:text-[#c4c7ca] hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors px-3 py-1 rounded-lg" href="#">Assets</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-surface-container rounded-full p-1 mr-4">
+<button class="px-4 py-1.5 rounded-full text-xs font-bold tracking-wider text-[#44474a]">FRONT</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-bold tracking-wider bg-primary text-white shadow-sm">BACK</button>
+</div>
+<button class="flex items-center justify-center p-2 text-[#44474a] hover:bg-blue-50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+<button class="flex items-center justify-center p-2 text-[#44474a] hover:bg-blue-50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="ml-2 bg-tertiary-fixed text-on-tertiary-fixed font-manrope font-bold px-6 py-2 rounded-xl scale-100 hover:scale-105 active:scale-95 transition-all">
+                Render
+            </button>
+</div>
+</header>
+<div class="flex h-screen pt-16">
+<!-- SideNavBar -->
+<aside class="bg-[#f0f4f8] dark:bg-[#1a1c1e] flex flex-col items-center py-6 gap-4 h-screen w-20 z-40 fixed left-0">
+<div class="mb-6">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="checkroom">checkroom</span>
+</div>
+</div>
+<nav class="flex flex-col gap-4 w-full px-2">
+<button class="group flex flex-col items-center justify-center py-3 w-full text-[#44474a] dark:text-[#c4c7ca] hover:text-[#2563EB] transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="palette">palette</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest">Colors</span>
+</button>
+<button class="group flex flex-col items-center justify-center py-3 w-full text-[#44474a] dark:text-[#c4c7ca] hover:text-[#2563EB] transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="upload_file">upload_file</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest">Upload</span>
+</button>
+<button class="group flex flex-col items-center justify-center py-3 w-full text-[#44474a] dark:text-[#c4c7ca] hover:text-[#2563EB] transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="title">title</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest">Text</span>
+</button>
+<button class="group flex flex-col items-center justify-center py-3 w-full bg-white dark:bg-[#2563EB]/10 text-[#2563EB] dark:text-[#3b82f6] rounded-xl shadow-sm translate-x-1 transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="layers">layers</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest">Layers</span>
+</button>
+<button class="group flex flex-col items-center justify-center py-3 w-full text-[#44474a] dark:text-[#c4c7ca] hover:text-[#2563EB] transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest">AI</span>
+</button>
+</nav>
+<div class="mt-auto pb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-white shadow-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional user portrait in high-end design studio environment with soft neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZw5UtqAGoq-FW72ZsjMEPB0xdFZJx8lXwhLt-7dUEGK9kcgGNd0hPpXQRtUV2KakaW9eyTuSJSh0TzHlNIW8J8l-m1K2V2cENGcCyziyBussLBD9t-VGp8CrtZdVy0Ut9pOLloKk0uwzV4QqEMfedkNygQwsMH4xqj9BhhaaYRevc4eUeGmYmlF0uyQDPAKQQlgdh-E44GULqgaV7TXyzUaTZIJWAgSIdYvFULuzth9E8bjC7jCWqTiK-kKf-gagEX3c87y-3nKWL"/>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="ml-20 flex-1 flex bg-surface relative overflow-hidden">
+<!-- Layers Panel (Empty State) -->
+<section class="w-72 bg-surface-container-low h-full p-6 flex flex-col gap-6 z-30">
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-lg font-bold tracking-tight">Layers</h2>
+<span class="text-outline text-xs font-medium">0 Objects</span>
+</div>
+<div class="flex-1 border-2 border-dashed border-outline-variant rounded-2xl flex flex-col items-center justify-center p-8 text-center bg-surface-container-lowest/50">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-outline" data-icon="layers">layers</span>
+</div>
+<p class="font-body text-sm font-semibold text-on-surface-variant mb-2">No active layers</p>
+<p class="font-body text-xs text-outline leading-relaxed">Start adding text or artwork to see your design layers here.</p>
+</div>
+<div class="bg-surface-container-highest/30 p-4 rounded-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="info">info</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Technical Note</span>
+</div>
+<p class="text-[11px] leading-tight text-outline">Maximum printable area: 14" x 16". Center alignment recommended for the back view.</p>
+</div>
+</section>
+<!-- Canvas Stage -->
+<section class="flex-1 relative flex items-center justify-center bg-surface-bright">
+<!-- Tonal Shift Workspace -->
+<div class="absolute inset-0 bg-[radial-gradient(#e0e3e5_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+<!-- Mockup Container -->
+<div class="relative w-[600px] h-[700px] flex items-center justify-center scale-110">
+<!-- T-shirt Back View Mockup -->
+<div class="relative w-full h-full">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="high resolution clean back view of a white heavy-cotton t-shirt on a neutral grey background with natural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-v8kUIlpgHHoVraMWD1eJVnehJEzSg3PqmMiW0dajHSTVnDN9YvA4oGZ-ABCS5ps3AUXidaOWeXXREUx_-1jUctKjDRK2jbfa8LLWLlC1XJp0XdiHNU8eCCk7lUGre0kpN8W3-8w1nyKxCKy6DuLmVlRkpFQRF5Hm7v1Z3E2SBvG-hJJ0pTsqg9xJ27HTaqGcWtyAwxy_71Rb5Cdhrd-lTCPVWsKKlumtCvAFtHuuGtaqXr1qqhKD73fONyMP5dPLZITVquZhX0t5"/>
+<!-- Design Area Bounds -->
+<div class="absolute top-[18%] left-[25%] right-[25%] bottom-[25%] border border-primary/20 bg-primary/5 rounded-lg flex flex-col items-center justify-center p-12 text-center">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50">
+<span class="material-symbols-outlined text-primary mb-3 text-3xl" data-icon="add_circle">add_circle</span>
+<h3 class="font-headline font-bold text-on-surface mb-2">The back is currently empty.</h3>
+<p class="font-body text-sm text-outline">Add a design, logo, or text to get started with your custom garment.</p>
+<button class="mt-4 px-6 py-2 bg-primary text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-primary-container transition-colors">
+                                    Browse Assets
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Canvas Controls -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-surface-container-lowest/80 backdrop-blur-xl px-6 py-3 rounded-full flex items-center gap-6 shadow-2xl z-40 border border-white/40">
+<div class="flex items-center gap-2">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="zoom_out">zoom_out</span></button>
+<span class="text-xs font-bold font-label w-12 text-center text-on-surface-variant">100%</span>
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl" data-icon="zoom_in">zoom_in</span></button>
+</div>
+<div class="w-px h-4 bg-outline-variant"></div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="grid_on">grid_on</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Guides</span>
+</button>
+<div class="w-px h-4 bg-outline-variant"></div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="center_focus_strong">center_focus_strong</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Reset View</span>
+</button>
+</div>
+</section>
+<!-- Inspector Panel -->
+<section class="w-80 bg-surface-container-low h-full p-6 flex flex-col gap-8 z-30">
+<h2 class="font-headline text-lg font-bold tracking-tight">Technical Specs</h2>
+<div class="space-y-6">
+<div>
+<label class="font-label text-[10px] font-bold uppercase tracking-widest text-outline mb-3 block">Garment Base</label>
+<div class="bg-surface-container-highest p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-lg border border-outline-variant/30 flex items-center justify-center p-2">
+<img class="w-full h-full object-cover rounded-sm" data-alt="close up swatch of high quality white organic cotton fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB017jbv7yirDNiccbpvwq7r0uu_mN4w4UmJVvhzmLDfEIlZFrDoS5V-qJe6oZ3nhHV5DOuiwYsDR8gvfHC4KJQsRuVE-sFl7mvD0YHiNJ-8GGCQwn9W5wgrk_-3Py4nF0v-mvktdfT5GcJzwQL8rEJRDlZOlm0cbTQO6cUcr5zERIpSzuU23LZrVLlqXfEYRIInbE-73xCKwl2cWlY-X_YeM6LYvvu-IfMUr_4TuWboQhHbiF5ACIY5vQfv7PbqOcprV5wxuris6IV"/>
+</div>
+<div>
+<p class="text-sm font-bold">Essential Crew</p>
+<p class="text-xs text-outline">Organic Cotton • White</p>
+</div>
+</div>
+</div>
+<div>
+<label class="font-label text-[10px] font-bold uppercase tracking-widest text-outline mb-3 block">Print Method</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 border-2 border-primary bg-white rounded-xl text-left">
+<p class="text-xs font-bold text-primary">DTG Print</p>
+<p class="text-[10px] text-outline leading-tight mt-1">Direct to garment</p>
+</button>
+<button class="p-3 border-2 border-transparent bg-surface-container rounded-xl text-left opacity-60 hover:opacity-100 transition-all">
+<p class="text-xs font-bold text-on-surface">Screen Print</p>
+<p class="text-[10px] text-outline leading-tight mt-1">Vector only</p>
+</button>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20">
+<div class="flex justify-between items-center mb-4">
+<p class="text-sm font-bold text-on-surface">Unit Estimate</p>
+<p class="text-lg font-bold text-primary">$24.00</p>
+</div>
+<button class="w-full bg-primary-container text-white font-manrope font-bold py-4 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:translate-y-[-2px] transition-all">
+                            Add to Production
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only Logic) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-4 h-20 bg-white/80 dark:bg-[#191c1e]/80 backdrop-blur-xl rounded-t-3xl shadow-[0px_-12px_32px_rgba(25,28,30,0.06)]">
+<button class="flex flex-col items-center justify-center text-[#44474a] dark:text-[#c4c7ca]">
+<span class="material-symbols-outlined" data-icon="flip_to_front">flip_to_front</span>
+<span class="font-inter text-[10px] font-bold">Front</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#2563EB] text-white rounded-full h-12 w-12 mb-2 shadow-lg">
+<span class="material-symbols-outlined" data-icon="flip_to_back">flip_to_back</span>
+<span class="font-inter text-[8px] font-bold">Back</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#44474a] dark:text-[#c4c7ca]">
+<span class="material-symbols-outlined" data-icon="texture">texture</span>
+<span class="font-inter text-[10px] font-bold">Sleeves</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#44474a] dark:text-[#c4c7ca]">
+<span class="material-symbols-outlined" data-icon="label">label</span>
+<span class="font-inter text-[10px] font-bold">Inside</span>
+</button>
+</nav>
+</div>
+</body></html>

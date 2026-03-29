@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes | Product Selection Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#bff365",
+              "on-error": "#ffffff",
+              "surface-variant": "#e0e3e5",
+              "tertiary": "#405e00",
+              "secondary": "#495c95",
+              "tertiary-fixed-dim": "#a4d64c",
+              "surface-tint": "#0053db",
+              "surface-dim": "#d8dadc",
+              "on-tertiary-fixed": "#131f00",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#f2f4f6",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c1e",
+              "on-secondary-fixed": "#00174b",
+              "secondary-container": "#acbfff",
+              "on-tertiary-fixed-variant": "#354e00",
+              "on-secondary": "#ffffff",
+              "primary-container": "#2563eb",
+              "inverse-on-surface": "#eff1f3",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#737686",
+              "on-surface": "#191c1e",
+              "primary": "#004ac6",
+              "surface-container-highest": "#e0e3e5",
+              "on-secondary-container": "#394c84",
+              "secondary-fixed-dim": "#b4c5ff",
+              "secondary-fixed": "#dbe1ff",
+              "primary-fixed-dim": "#b4c5ff",
+              "outline-variant": "#c3c6d7",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#b4c5ff",
+              "error-container": "#ffdad6",
+              "on-tertiary-container": "#d3ff88",
+              "surface-bright": "#f7f9fb",
+              "error": "#ba1a1a",
+              "inverse-surface": "#2d3133",
+              "primary-fixed": "#dbe1ff",
+              "on-primary-container": "#eeefff",
+              "background": "#f7f9fb",
+              "surface": "#f7f9fb",
+              "tertiary-container": "#537800",
+              "on-primary-fixed-variant": "#003ea8",
+              "on-primary-fixed": "#00174b",
+              "surface-container": "#eceef0",
+              "on-surface-variant": "#434655",
+              "surface-container-high": "#e6e8ea"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-[#f7f9fb] dark:bg-slate-900 sticky top-0 z-50 flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">LEAD Design Clothes</span>
+<!-- Search Bar (on_left) -->
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border-none rounded-lg text-sm w-80 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search templates..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-6">
+<div class="flex items-center gap-4 mr-4 border-r border-outline-variant/30 pr-6">
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 font-manrope tracking-tight text-sm font-semibold py-1" href="#">All Products</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope tracking-tight text-sm font-semibold hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-colors px-2 py-1 rounded" href="#">Mockups</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope tracking-tight text-sm font-semibold hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-colors px-2 py-1 rounded" href="#">Library</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full object-cover border-2 border-primary-container shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRo6MFZvYXhD6wEHuE7cQkYP5YmzV7cyDcEhn6yubfCRTK7oGSSoCmcB1c0HNjRkT-NKl784yEzS9fgIvwGQL0v9bxtMyxYceoRhixBdP020U5rajrrUaZ2cgArRdJoJEP35Ny3qLcCXFm3zurHFsr4VOHTF3f3vpbG5kvblLUoKpcpDUdxBm8GcidsQws7QWNFM0BWCBR2ElK1PTp5UsSDb1xnoK9g-BunMHdiSn6KZIYXRt9YRANeMc7BK4YA9f8r5h4MPjbOAoF"/>
+</div>
+</nav>
+</header>
+<div class="flex max-w-[1600px] mx-auto px-8 py-10 gap-12">
+<!-- Filter Sidebar (left) -->
+<aside class="w-64 flex-shrink-0 space-y-8 sticky top-28 h-fit">
+<div class="space-y-6">
+<!-- Category Section -->
+<div>
+<h3 class="font-headline font-bold text-sm tracking-tight mb-4 flex items-center justify-between">
+                        Category
+                        <span class="material-symbols-outlined text-xs">keyboard_arrow_up</span>
+</h3>
+<ul class="space-y-2">
+<li class="flex items-center gap-3 text-primary text-sm font-semibold bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">apparel</span>
+                            Tops
+                        </li>
+<li class="flex items-center gap-3 text-on-surface-variant text-sm hover:translate-x-1 transition-transform cursor-pointer px-3 py-1">
+<span class="material-symbols-outlined text-[18px]">checkroom</span>
+                            Bottoms
+                        </li>
+<li class="flex items-center gap-3 text-on-surface-variant text-sm hover:translate-x-1 transition-transform cursor-pointer px-3 py-1">
+<span class="material-symbols-outlined text-[18px]">dry_cleaning</span>
+                            Outerwear
+                        </li>
+<li class="flex items-center gap-3 text-on-surface-variant text-sm hover:translate-x-1 transition-transform cursor-pointer px-3 py-1">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+                            Accessories
+                        </li>
+</ul>
+</div>
+<!-- Gender -->
+<div>
+<h3 class="font-headline font-bold text-sm tracking-tight mb-4 flex items-center justify-between">Gender</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 text-sm cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-primary-container focus:ring-primary w-4 h-4" type="checkbox"/>
+<span>Men's</span>
+</label>
+<label class="flex items-center gap-3 text-sm cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-primary-container focus:ring-primary w-4 h-4" type="checkbox"/>
+<span>Women's</span>
+</label>
+<label class="flex items-center gap-3 text-sm cursor-pointer">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary w-4 h-4" type="checkbox"/>
+<span>Unisex</span>
+</label>
+</div>
+</div>
+<!-- Color Availability -->
+<div>
+<h3 class="font-headline font-bold text-sm tracking-tight mb-4">Color Availability</h3>
+<div class="flex flex-wrap gap-2">
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-white"></button>
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-slate-900"></button>
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-red-600"></button>
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-blue-700"></button>
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-emerald-600"></button>
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-amber-200"></button>
+<button class="w-6 h-6 rounded-full border-2 border-white ring-1 ring-outline-variant bg-pink-300"></button>
+</div>
+</div>
+<!-- Print Area -->
+<div>
+<h3 class="font-headline font-bold text-sm tracking-tight mb-4 flex items-center justify-between">Print Area</h3>
+<div class="grid grid-cols-2 gap-2">
+<button class="text-xs py-2 px-3 bg-white border border-outline-variant/30 rounded-lg hover:bg-surface-container transition-colors">Front</button>
+<button class="text-xs py-2 px-3 bg-white border border-outline-variant/30 rounded-lg hover:bg-surface-container transition-colors">Back</button>
+<button class="text-xs py-2 px-3 bg-white border border-outline-variant/30 rounded-lg hover:bg-surface-container transition-colors">Left Sleeve</button>
+<button class="text-xs py-2 px-3 bg-white border border-outline-variant/30 rounded-lg hover:bg-surface-container transition-colors">Right Sleeve</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Product View (right) -->
+<main class="flex-1 min-w-0 space-y-12">
+<!-- Recently Used Templates -->
+<section>
+<div class="flex items-baseline justify-between mb-6">
+<h2 class="text-2xl font-extrabold tracking-tight">Recently Used Templates</h2>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">View All</a>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 -mx-2 px-2">
+<div class="flex-shrink-0 w-72 bg-surface-container-low rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group">
+<div class="aspect-[4/3] bg-surface relative overflow-hidden">
+<img alt="Classic White Tee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="clean white t-shirt on a minimalist background with soft studio lighting and professional apparel photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBoBIQrQVxoMgbGDQZRQbThBbSAdMR9wuomCwqMIi7MT0WzMblNZQkPg3iewOw9jAnhP_XnSDC8uEmRMsaZfNJf37a0CL6TcS12koBKKb08LunvGfnEsv3z_I7itA9iEyY-ODeY_R1nRh4298u81msZfxwmQFjBn5Wt2eQU0LIwD3hdmJB1vInXmvB93mrTIv8GH5ErpzEjjIul1NZPKv9YXg2Xyi9JRgzVhDGG0-Ve0Qu0JT5M7mdoJdBFbWrlvgFNMRURDzUVe6f"/>
+<div class="absolute top-3 right-3 bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest">Active</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-sm">Classic Cotton T-Shirt</h4>
+<p class="text-xs text-outline mt-1">Edited 2 hours ago</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-72 bg-surface-container-low rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group">
+<div class="aspect-[4/3] bg-surface relative overflow-hidden">
+<img alt="Oversized Black Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="high-quality black hoodie mockup on a grey studio background with sharp details on the fabric texture and drawstring" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhjG3Joy5FCVBZ61vZ9w8oxFsYbEqa68oO7lVXyhtIbuF6ZB-iw61AJaWaqMjzLBGlqQN1wCyFgXJEJaRUc4TV1fpCSd6yo727iyn9WnVWra-kV6ciAzpgXJIKtRQeNTC_pSycd2eaSmcra-5ukQ3-8eShHhaxvcvXfaAifFUNV3h1dvy39TO2DZVRIB1jIi60VBkg9K3pWBcoINKEFFLYue4rCgM-dD5RF8lMo8i768q6ogGnlx4-HDAU-hyjWS_E-ooSaKvmTkPH"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-sm">Oversized Cotton Hoodie</h4>
+<p class="text-xs text-outline mt-1">Edited yesterday</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-72 bg-surface-container-low rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group">
+<div class="aspect-[4/3] bg-surface relative overflow-hidden">
+<img alt="Essential Sweatshirt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist grey crewneck sweatshirt on a neutral surface with clean shadows and high-end fashion catalog aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7tnhpvU4JfZrxdWKUAMayZd42Mqnmne8EWDDzUE2rNRUCsnitxRUa48TvCsXoOu4pkvqPtz6OjnJQOyfsPYlMO2FGb6aF39gVNjT66ivmfeW7r3hf5RU3BeHN3lGYXXyNPV7brk9t-xNLPoNDPtUpkEAwzgxe79MUUpaYHZ9fRngumr5he36FhUpfUhWk1BiV-z5liIh9duM0qNxY5BfBR8KAeLjO4xFd6mCbjsIRzMp4_by5MOpUHoxVMp0monDkKuAfteoGaWrj"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-sm">Essential Crewneck</h4>
+<p class="text-xs text-outline mt-1">Edited 3 days ago</p>
+</div>
+</div>
+</div>
+</section>
+<!-- All Garments Grid -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-extrabold tracking-tight">All Garments</h2>
+<div class="flex bg-surface-container rounded-lg p-1">
+<button class="p-1.5 bg-white rounded-md shadow-sm"><span class="material-symbols-outlined text-[20px]">grid_view</span></button>
+<button class="p-1.5 text-outline hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">view_list</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Item 1: Classic T-Shirt -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+<div class="aspect-[5/6] bg-surface relative group">
+<img alt="White Tee" class="w-full h-full object-cover" data-alt="front view of a white cotton t-shirt on a high-end designer hanger against a clean gallery wall background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIMEE9YWpU3PZeklA1g2AN0-_4DmXFDrnNb6MgPkOnejwefEf8YdPjLO1I-63zKnq4wqyKl3RdeMSMjTtJ2HaenKFQDFFLICly1ozgzUdQVfictpQKZTvC22FCNGdUafJzIxsSu8v7yNJi7_8U6UxcReigjir9fladlEhQHffPGvEZK9btNAQwx98GJQh3jt4GdDF3dLvdAfS1c1EfzVY8vgWGz9mWilfD_Gj6Zi54TxH6jW3kT917HRhXiz6AAmCy4byftPT9Ouf-"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined">edit_square</span>
+                                    Customize
+                                </button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg leading-tight">Classic Cotton T-Shirt</h3>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                                    12 colors
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">branding_watermark</span>
+                                    2 print areas
+                                </div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white hover:border-transparent transition-all">Quick View</button>
+</div>
+</div>
+<!-- Item 2: Oversized Hoodie -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+<div class="aspect-[5/6] bg-surface relative group">
+<img alt="Black Hoodie" class="w-full h-full object-cover" data-alt="heavyweight black hoodie on a minimalist hanger showing premium jersey texture and wide silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIYoIgcrbOkT4ifzfNXLSZOJ1_G2QrTOgGz-G3F0uXkPTmKUGhd-1ZU-UN0pd9XmsUU0GrwN8FEhPUYzxiRcdZZ5kKW1xROTW3BkKC1-taiKQSTYYCli2vGvME3YI5tbB4bb93gYFOt6RQsYsHuWvPYiR1lHNxyhY_TjS1TYna5BjvxF8uvplQsqnQQXEf5hJab4rVDCwElViRwJEQuAupJA2nk0W00zQwdSbDnakVvG3OX2QqsPlrrz0lVg5pCk0UBOn9HRXDz9UR"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined">edit_square</span>
+                                    Customize
+                                </button>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg leading-tight mb-2">Oversized Cotton Hoodie</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                                    8 colors
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">branding_watermark</span>
+                                    3 print areas
+                                </div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white hover:border-transparent transition-all">Quick View</button>
+</div>
+</div>
+<!-- Item 3: Essential Sweatshirt -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+<div class="aspect-[5/6] bg-surface relative group">
+<img alt="Grey Sweatshirt" class="w-full h-full object-cover" data-alt="classic heather grey crewneck sweatshirt on a wooden hanger with subtle fabric detail and clean studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJBCI60LBrMnrb6TDulo3hOVcMtb8yaoPLJHqkMbtFN9cfFne3kuJH77zcNDHNVx9x6ZRz_urm1uVlxny3MvKRRCtviTnynDqRtK9-OjPgxR5oBlDKjtwLohtggFMHQ4XzqEzQLHChaKutgpaNvfCKjav3IvS8DKfwT5H6FUsu_WQ1AO86M05eFJLlvw6CnfVu6I1fAE7I3yjor-rq__funeGZqXXbMATs3vJ7uDEQVsDxCwq5bhUWVUpjQt15CsgRFitLa3bYKFfh"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined">edit_square</span>
+                                    Customize
+                                </button>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg leading-tight mb-2">Essential Crewneck</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                                    6 colors
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">branding_watermark</span>
+                                    2 print areas
+                                </div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white hover:border-transparent transition-all">Quick View</button>
+</div>
+</div>
+<!-- Item 4: Pique Polo -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+<div class="aspect-[5/6] bg-surface relative group">
+<img alt="Navy Polo" class="w-full h-full object-cover" data-alt="premium navy blue pique polo shirt on a dark hanger highlighting the textured knit and sharp collar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADNGACvu5WgPgSx2X1FpIbkyqjm98zcdlB6bkupuD3KIrT7QcoiNmcsybxvlCtWSKgRK4ofaF7TnL8IvTWtGgprV2LRTrsdxbUKFvnnVhQi0AVCPjPmCHfGF1D2tR83bQXY2KStr1v_fIKIWFqZkgEtiX_kqFveNv3rLHE74jEgzZ3xC-yL50VZCSVsq4Li7bYKWk-fLr3yqmbBFrdLXSbMzg956IE-U5bdfBsihO6cAw1EkGw-isY1bWcMA3dG-okEq5868ppgaLV"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined">edit_square</span>
+                                    Customize
+                                </button>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg leading-tight mb-2">Pique Performance Polo</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                                    10 colors
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">branding_watermark</span>
+                                    1 print area
+                                </div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white hover:border-transparent transition-all">Quick View</button>
+</div>
+</div>
+<!-- Item 5: Canvas Tote -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+<div class="aspect-[5/6] bg-surface relative group">
+<img alt="Tote Bag" class="w-full h-full object-cover" data-alt="minimalist eco-friendly canvas tote bag in natural off-white color hanging from a hook in a brightly lit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4O3RksAmmabmiRYI_hfUHUvwiSaMiYnRDvgaqJWGBKIqWg9dCuEt9uJ9xdUu3-5N709fp4lOrKa1WLOkApG0IcPPx-cm1_5WmB7ffvZ8vOyaM3tIEjCrDUaxF60NhxxoUXFbTZV0dRFoZBOcYksWQZxualHpUtUzPDRpq7M9JkRpEfHqi1T_wmBg5J9wlyC_IHFlmBQTS3URhhUVrICdm_J4vNpxml_lmp2gtn0l4I0Uint6-FKGPbu8bAI1p7VuhZ4bh7OxDgl5"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined">edit_square</span>
+                                    Customize
+                                </button>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg leading-tight mb-2">Eco-Canvas Tote</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                                    4 colors
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">branding_watermark</span>
+                                    1 print area
+                                </div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white hover:border-transparent transition-all">Quick View</button>
+</div>
+</div>
+<!-- Item 6: Structured Cap -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+<div class="aspect-[5/6] bg-surface relative group">
+<img alt="Baseball Cap" class="w-full h-full object-cover" data-alt="structured 6-panel baseball cap mockup on a glass stand with sharp focus on the crown and brim texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfnC8E8QvFvPw7vSS57NWwCYAcjVdC1dDHKxySHTVGtDjXmmReTSXgogBnmcogliKSL94gYytp5UYEsYVIEL--yXX7Zt1er7djif1PhVQCj6ZGfZI5A14JGKhmdpI3_a53wcZLqAlD3yylIiPgX22nZ2LHCj0uUQPQDF65y6QA1MH9RGWdc6GWDiGD54bbq50RkiRMXIHtXI-sgJOALax9rF1I-npCor1CgCIDxyc4Dwc_C76yi7kvcxA9kKZv_3j4jKqOEuO4OXVl"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined">edit_square</span>
+                                    Customize
+                                </button>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg leading-tight mb-2">Structured 6-Panel Cap</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                                    15 colors
+                                </div>
+<div class="flex items-center gap-1.5 text-xs text-outline">
+<span class="material-symbols-outlined text-[16px]">branding_watermark</span>
+                                    1 print area
+                                </div>
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white hover:border-transparent transition-all">Quick View</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Saved Drafts Section (Compact) -->
+<section class="bg-surface-container-low p-8 rounded-2xl">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-extrabold tracking-tight">Saved Drafts</h2>
+<span class="text-xs font-bold uppercase tracking-widest text-outline">8 Projects Total</span>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex items-center gap-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-12 h-12 rounded bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="tiny thumbnail of a mockup project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9AR7WD5UpEQjpJ8X5uIuG-DVLqtAW1pRBHtFXCniV3UhFhb6aHD7tEyZITS8n5vM_D3XfbQnGOH4iS-ogJUGtI9INq9Sp7qdie3ypIpnGu2tebhECU30NssvT5w0EuQDFXozKayA-5La-YLsYHZidEs_XM4QzDz6gtWM5LApOpl-VzkXJXiheyzi9mR5DPEB29RC-858CC1iBE6LGIIDVvl7Ue0KzPi_QPZxbGra0iLmzj5KsycPqSxjREho2V3B0MTFODmtOXh40"/>
+</div>
+<div class="min-w-0">
+<p class="text-sm font-bold truncate">Summer Drop '24</p>
+<p class="text-[10px] text-outline">T-Shirt • 2d ago</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-12 h-12 rounded bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="tiny thumbnail of a black hoodie project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0AehnuTul6javImzwgxvVEucYyjUCBnjiL2ocqTy9GO5DVmExK1t3b-x81gsy8txc23wwBZRkxjtfdHYj2vdXEwIVTYzMIjwf6QJlTRK5gwEpBGAj-jatYJVpiL_9V3zRmWLDiGZqRZU30zkuk2DPxN7ViJJNVXVddxl1RSgQT5vMhs4vmApIAzXWo4928XmbAbuSOrrWR0-FEDtOeK_NGijkOQ-vat8DtD3_ot4V1t1Q5jRLgJb_UVsTGnzC1Dcfo6Rv7V-R3LEp"/>
+</div>
+<div class="min-w-0">
+<p class="text-sm font-bold truncate">Tech Pack v1.2</p>
+<p class="text-[10px] text-outline">Hoodie • 5d ago</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-12 h-12 rounded bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="tiny thumbnail of a tote bag project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4TbCg_WTsVwNsy1Yr6ShUBnkZ1srSCYBAwu4dO2UOaoIAU-igtwEMg6zpSVOGQ4Mb5inetqC4O6epPDoQUSQ4EdBKBFyrs-1qr-qX8xRsAp1f3hqRqoei-y0M838L34RZfYhYkwazbU1kuJmZS2uYE152AuvcOscKCUiZ-By-XVPSbl2wXsS1PD4Y1jy9xJC7Hu4syPt2MFW4zKAbrVH2aqL4aPl57M2Z8ixCSJf3r4VymtJ5O-BHK6CJhAtFDDupRAatT04DW9bW"/>
+</div>
+<div class="min-w-0">
+<p class="text-sm font-bold truncate">Artist Merch</p>
+<p class="text-[10px] text-outline">Tote • 1w ago</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white/50 border border-dashed border-outline-variant rounded-xl hover:bg-white transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-outline group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+<p class="text-sm font-bold text-outline group-hover:text-on-surface">New Collection</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Render Floating Action (The "Key Action" Button) -->
+<div class="fixed bottom-10 right-10">
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-8 py-4 rounded-xl font-bold flex items-center gap-3 shadow-[0px_12px_32px_rgba(191,243,101,0.3)] hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">auto_fix_high</span>
+            Quick Render Selected
+        </button>
+</div>
+</body></html>

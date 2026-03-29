@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.env
+.env.local
+.env.production
+*.tsbuildinfo
+lead-design-clothes/.next/
+lead-design-clothes/node_modules/

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes | Image Editor</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#f7f9fb",
+              "on-secondary-container": "#394c84",
+              "on-primary-fixed": "#00174b",
+              "tertiary-fixed": "#bff365",
+              "surface-container-low": "#f2f4f6",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#003ea8",
+              "on-surface": "#191c1e",
+              "surface-container": "#eceef0",
+              "on-secondary-fixed": "#00174b",
+              "surface-variant": "#e0e3e5",
+              "on-tertiary-fixed-variant": "#354e00",
+              "primary-fixed": "#dbe1ff",
+              "primary-container": "#2563eb",
+              "outline-variant": "#c3c6d7",
+              "on-tertiary-fixed": "#131f00",
+              "primary-fixed-dim": "#b4c5ff",
+              "outline": "#737686",
+              "error": "#ba1a1a",
+              "surface": "#f7f9fb",
+              "on-primary-container": "#eeefff",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-surface-variant": "#434655",
+              "inverse-primary": "#b4c5ff",
+              "surface-container-highest": "#e0e3e5",
+              "secondary": "#495c95",
+              "secondary-fixed-dim": "#b4c5ff",
+              "tertiary-container": "#537800",
+              "surface-bright": "#f7f9fb",
+              "on-tertiary-container": "#d3ff88",
+              "surface-dim": "#d8dadc",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#2d3133",
+              "primary": "#004ac6",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-background": "#191c1e",
+              "tertiary": "#405e00",
+              "surface-container-high": "#e6e8ea",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#dbe1ff",
+              "secondary-container": "#acbfff",
+              "tertiary-fixed-dim": "#a4d64c",
+              "surface-tint": "#0053db",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#eff1f3"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .checkerboard-bg {
+            background-color: #ffffff;
+            background-image: linear-gradient(45deg, #f2f4f6 25%, transparent 25%), 
+                              linear-gradient(-45deg, #f2f4f6 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #f2f4f6 75%), 
+                              linear-gradient(-45deg, transparent 75%, #f2f4f6 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden">
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 bg-on-surface/20 backdrop-blur-sm z-0 flex items-center justify-center p-4 md:p-10">
+<!-- Main Modal Container -->
+<div class="bg-surface-container-lowest w-full max-w-7xl h-full max-h-[900px] rounded-xl shadow-2xl overflow-hidden flex flex-col relative">
+<!-- TopAppBar Navigation -->
+<header class="bg-[#f7f9fb] text-xl font-bold text-slate-900 tracking-tighter flex justify-between items-center w-full px-6 py-3 no-line tonal-shift bg-slate-100/50">
+<div class="flex items-center gap-6">
+<span class="font-headline text-xl font-bold text-slate-900 tracking-tighter">LEAD Design Clothes</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-label text-sm font-medium text-[#2563EB] border-b-2 border-[#2563EB] pb-1" href="#">Studio</a>
+<a class="font-label text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">Assets</a>
+<a class="font-label text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User profile" data-alt="close-up portrait of a professional designer in a bright modern office setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNh0Vi1A9l5aXjMBOBQyh4lgkVhO6YySys34S49vlWeEEdYv2l5u8_TE-h_oj4bgZ863y_tTPF9Oxe8Le8v5qEDmwLt88XUkYnqqhDGVyGgKr064A-GsYjwCGW2o-vv_imhgiE4vKpReV3KrKN9n8FMb-7_bosRbLaheXKdvPW1OgvsHeeSlKTGpqelV6nv6qCqoFaq5EslXNAelxCaIMl_RG0f6Mcunuuhhs4l5QMP-_ZfEiIboimgdOu3cbcNMLo16wZLkucX16b"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar (Import Sources) -->
+<aside class="bg-[#f7f9fb] flex flex-col border-r-0 h-full w-64 p-4 no-line bg-slate-100/50">
+<div class="mb-8 px-2">
+<h2 class="font-headline text-lg font-bold">Import Sources</h2>
+<p class="font-label text-xs text-slate-500">Select media</p>
+</div>
+<nav class="flex flex-col gap-1">
+<!-- Local Files (Active) -->
+<button class="flex items-center gap-3 px-4 py-3 bg-[#2563EB]/10 text-[#2563EB] font-semibold rounded-lg transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+<span class="text-sm font-label">Local Files</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+<span class="text-sm font-label">Camera</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+<span class="text-sm font-label">Direct Link</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="add_to_drive">add_to_drive</span>
+<span class="text-sm font-label">Google Drive</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-sm font-label">Dropbox</span>
+</button>
+</nav>
+<!-- Status Info -->
+<div class="mt-auto p-4 bg-surface-container-low rounded-xl">
+<p class="text-[10px] font-label uppercase tracking-widest text-outline mb-2">Workspace Storage</p>
+<div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<p class="text-[10px] font-label text-on-surface-variant mt-2">1.2 GB / 2 GB used</p>
+</div>
+</aside>
+<!-- Central Canvas Area -->
+<main class="flex-1 relative bg-surface-container flex flex-col items-center justify-center p-8 overflow-hidden">
+<!-- The Canvas Container -->
+<div class="w-full h-full rounded-2xl checkerboard-bg shadow-inner relative flex items-center justify-center border-4 border-surface-container-lowest overflow-hidden">
+<!-- Main Preview Image -->
+<div class="relative group cursor-crosshair">
+<img alt="Graphic T-Shirt Preview" class="max-h-[614px] max-w-[80%] object-contain drop-shadow-2xl" data-alt="bold minimalist geometric logo design with sharp angles and clean lines on a high-quality white cotton texture background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFWqZMOqik4Wb3bjNwnQo9Os-wqh0h3qYV9r1lCYvkW54ADG_o8Y48RJZf_f_F7dKdqxP3VAVla8iVBhi1Q0e642CXEoSkKqVndSuzf-9pdZN8Q1WGCPIiVtyIGeOGYgThKNf6cggX2UG8tMrovOvOxeBFmIyJiKP95MTcCGB14TgoQ9gWHKuiSkCvcHI75kWFBGqDhZ7IzOZgjVCR_iHTj8e0TvzqMNFeWPTYP-a7jsIRj8nVke76n8LdvkFHkJH4_ParkgU9Y_uA"/>
+<!-- Bounding Box Overlay (Simulated) -->
+<div class="absolute -inset-4 border-2 border-primary border-dashed opacity-50 rounded-lg pointer-events-none"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded font-label uppercase tracking-tighter">Graphic Layer 01</div>
+</div>
+<!-- Image Info Overlay (Top Right) -->
+<div class="absolute top-6 right-6 flex flex-col gap-2">
+<div class="bg-surface-container-lowest/80 backdrop-blur px-4 py-2 rounded-lg shadow-sm">
+<p class="text-[10px] font-label uppercase text-outline">Resolution</p>
+<p class="text-sm font-medium text-on-surface">3200 x 4800 px</p>
+</div>
+<div class="bg-surface-container-lowest/80 backdrop-blur px-4 py-2 rounded-lg shadow-sm">
+<p class="text-[10px] font-label uppercase text-outline">File Size</p>
+<p class="text-sm font-medium text-on-surface">4.8 MB</p>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Toolbar (Quick Tools) -->
+<nav class="fixed bottom-8 flex justify-center gap-4 z-50 bg-white/80 backdrop-blur-md rounded-2xl px-8 py-4 w-auto min-w-[500px] shadow-xl shadow-slate-900/10 transition-transform hover:scale-[1.01]">
+<button class="flex flex-col items-center gap-1 text-slate-600 px-4 py-2 hover:scale-105 transition-transform group">
+<span class="material-symbols-outlined" data-icon="crop">crop</span>
+<span class="text-[9px] font-label uppercase tracking-widest">Crop</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#bff365] bg-slate-900 rounded-xl px-6 py-2 transition-all scale-95">
+<span class="material-symbols-outlined" data-icon="ink_eraser">ink_eraser</span>
+<span class="text-[9px] font-label uppercase tracking-widest">Remove BG</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-600 px-4 py-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="magic_button">magic_button</span>
+<span class="text-[9px] font-label uppercase tracking-widest">Enhance</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-600 px-4 py-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="rotate_right">rotate_right</span>
+<span class="text-[9px] font-label uppercase tracking-widest">Rotate</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-600 px-4 py-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="blur_on">blur_on</span>
+<span class="text-[9px] font-label uppercase tracking-widest">Blur</span>
+</button>
+</nav>
+</main>
+</div>
+<!-- Footer Action Bar -->
+<footer class="bg-surface-container-lowest px-8 py-6 flex items-center justify-between border-t border-surface-container">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="close-up portrait of a young creative professional with a friendly expression in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwh3jIwLgLLu-V50eJCijrIbkj9dG7JFj2trtX10gCXWxKrHr3QW2nNveq0RKyUssQvNF8xQJKZ-aqu4r10pvgMCsFHU7MrONhwNckuDhVhYirHbqp0SdbRnVt7APoAMfkvcApSl1MQ2lNFK8HNAMo1oMVFWf_M6pAQEx6mLQkkez1b3KMpZ3M-g5_oxc3yYryJayXnprad0tO51Ck6mvpOZd029wc7LrlE0oFV22sPq6nB2-ax0A2rt691dDLSqzNScKs7yxiXgJF"/>
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="portrait of a focused graphic designer with glasses in a minimalist creative workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWVx7Baea2kbDdrjNSdE_0SLZq56GCqXycVN7STwt83iWc0VLzZ1G3Uv-FiZC27HJ9fpsz1MxfJ4sdTj4_xSKfm54ZoyzrReqAxny3QYxrbjt3mKshqK5Y-7OjUJFC4uZmTV38wTN3PUWxzTOhC7OpnxPI7Uw7qJUrVJV-pfsXRri93C0w4nijmoLRId1Q9tShV-TNckxO3fcl8u3Cc6NHyXY7689KGgofBEZmJKweOsv7wOIR8jTSD8y2yoHZxqm8PBeS0h9eMklx"/>
+</div>
+<span class="text-xs text-outline font-label italic">Collaborating on "Summer Collection '25"</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all">
+                        Cancel
+                    </button>
+<button class="flex items-center gap-2 px-8 py-3 bg-tertiary-fixed text-on-tertiary-fixed font-headline font-bold rounded-xl shadow-lg shadow-tertiary-fixed/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="add_circle">add_circle</span>
+                        Add to Canvas
+                    </button>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

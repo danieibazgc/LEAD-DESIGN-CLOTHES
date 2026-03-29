@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* ─── LEAD Design Clothes — Design System Tokens ─── */
+@theme inline {
+  /* Surface hierarchy */
+  --color-surface: #f7f9fb;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-variant: #e0e3e5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-background: #f7f9fb;
+
+  /* Primary — authoritative blue */
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-primary-fixed: #dbe1ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #eeefff;
+  --color-on-primary-fixed: #00174b;
+  --color-on-primary-fixed-variant: #003ea8;
+  --color-inverse-primary: #b4c5ff;
+  --color-surface-tint: #0053db;
+
+  /* Secondary */
+  --color-secondary: #495c95;
+  --color-secondary-container: #acbfff;
+  --color-secondary-fixed: #dbe1ff;
+  --color-secondary-fixed-dim: #b4c5ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #394c84;
+  --color-on-secondary-fixed: #00174b;
+  --color-on-secondary-fixed-variant: #31447b;
+
+  /* Tertiary — KEY ACTION lime/green */
+  --color-tertiary: #405e00;
+  --color-tertiary-container: #537800;
+  --color-tertiary-fixed: #bff365;
+  --color-tertiary-fixed-dim: #a4d64c;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #d3ff88;
+  --color-on-tertiary-fixed: #131f00;
+  --color-on-tertiary-fixed-variant: #354e00;
+
+  /* On surfaces */
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #434655;
+  --color-on-background: #191c1e;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+
+  /* Outline */
+  --color-outline: #737686;
+  --color-outline-variant: #c3c6d7;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Typography */
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* Border radius */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* ─── Global base ─── */
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Glassmorphism utility ─── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ─── Ambient shadow (from DESIGN.md) ─── */
+.ambient-shadow {
+  box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+}
+
+/* ─── Dot-grid canvas background ─── */
+.canvas-dots {
+  background-image: radial-gradient(circle, #c3c6d7 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Checkerboard (transparency preview) ─── */
+.checkerboard {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #f2f4f6 25%, transparent 25%),
+    linear-gradient(-45deg, #f2f4f6 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f2f4f6 75%),
+    linear-gradient(-45deg, transparent 75%, #f2f4f6 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* ─── Scrollbar hide ─── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

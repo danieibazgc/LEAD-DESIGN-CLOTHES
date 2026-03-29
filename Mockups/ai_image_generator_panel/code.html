@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes | AI Design Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "surface-container-low": "#f2f4f6",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c1e",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#a4d64c",
+              "surface-tint": "#0053db",
+              "surface-dim": "#d8dadc",
+              "on-tertiary-fixed": "#131f00",
+              "secondary": "#495c95",
+              "tertiary": "#405e00",
+              "surface-variant": "#e0e3e5",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#bff365",
+              "surface-container-highest": "#e0e3e5",
+              "primary": "#004ac6",
+              "outline": "#737686",
+              "on-surface": "#191c1e",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "primary-container": "#2563eb",
+              "secondary-container": "#acbfff",
+              "on-tertiary-fixed-variant": "#354e00",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#d3ff88",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#b4c5ff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#b4c5ff",
+              "outline-variant": "#c3c6d7",
+              "secondary-fixed": "#dbe1ff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-container": "#394c84",
+              "surface-container-high": "#e6e8ea",
+              "on-surface-variant": "#434655",
+              "surface-container": "#eceef0",
+              "tertiary-container": "#537800",
+              "on-primary-fixed-variant": "#003ea8",
+              "on-primary-fixed": "#00174b",
+              "surface": "#f7f9fb",
+              "background": "#f7f9fb",
+              "on-primary-container": "#eeefff",
+              "primary-fixed": "#dbe1ff",
+              "inverse-surface": "#2d3133",
+              "error": "#ba1a1a",
+              "surface-bright": "#f7f9fb"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .canvas-bg {
+            background-image: radial-gradient(#e0e3e5 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-slate-50/80 backdrop-blur-xl">
+<div class="text-xl font-bold tracking-tighter text-slate-900 font-headline">LEAD Design Clothes</div>
+<nav class="hidden md:flex items-center gap-8">
+<button class="text-blue-600 font-bold border-b-2 border-blue-600 font-label py-1">Studio</button>
+<button class="text-slate-500 font-label py-1 hover:text-blue-500 transition-colors">Assets</button>
+<button class="text-slate-500 font-label py-1 hover:text-blue-500 transition-colors">Orders</button>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-blue-600 transition-all active:scale-95">
+<span class="material-symbols-outlined">flip_camera_android</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-blue-600 transition-all active:scale-95">
+<span class="material-symbols-outlined">layers</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high"></div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col items-center py-8 gap-4 z-40 bg-slate-100 w-20 pt-24 shadow-sm">
+<button class="group flex flex-col items-center gap-1 w-full py-3 text-slate-400 hover:bg-slate-200 transition-all">
+<span class="material-symbols-outlined">checkroom</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Blank</span>
+</button>
+<button class="group flex flex-col items-center gap-1 w-full py-3 text-slate-400 hover:bg-slate-200 transition-all">
+<span class="material-symbols-outlined">palette</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Colors</span>
+</button>
+<button class="group flex flex-col items-center gap-1 w-full py-3 text-slate-400 hover:bg-slate-200 transition-all">
+<span class="material-symbols-outlined">upload_file</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Upload</span>
+</button>
+<button class="group flex flex-col items-center gap-1 w-full py-3 text-slate-400 hover:bg-slate-200 transition-all">
+<span class="material-symbols-outlined">title</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Text</span>
+</button>
+<button class="group flex flex-col items-center gap-1 w-full py-3 text-slate-400 hover:bg-slate-200 transition-all">
+<span class="material-symbols-outlined">layers</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Layers</span>
+</button>
+<button class="group flex flex-col items-center gap-1 w-full py-3 bg-white text-blue-600 shadow-sm transition-all border-r-4 border-blue-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">AI</span>
+</button>
+</aside>
+<!-- Main Workspace -->
+<main class="ml-20 pt-20 pb-20 flex h-screen overflow-hidden">
+<!-- Contextual AI Panel -->
+<section class="w-96 bg-surface-container-low h-full flex flex-col overflow-y-auto no-scrollbar border-r border-slate-200/50">
+<div class="px-6 py-8">
+<h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface mb-1">AI Image Generator</h2>
+<p class="text-sm text-outline mb-8">Craft unique graphics with Studio AI</p>
+<div class="space-y-6">
+<!-- Prompt Input -->
+<div>
+<label class="block text-xs font-bold text-outline mb-2 uppercase tracking-tighter">Design Prompt</label>
+<textarea class="w-full h-32 bg-white rounded-xl border-none focus:ring-2 focus:ring-primary text-sm p-4 shadow-sm resize-none text-on-surface" placeholder="Describe your masterpiece...">A vintage tiger emblem with streetwear vibes, high contrast, detailed embroidery texture, deep oranges and black.</textarea>
+</div>
+<!-- Style Presets Grid -->
+<div>
+<label class="block text-xs font-bold text-outline mb-2 uppercase tracking-tighter">Style Preset</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-transparent hover:border-primary/20 transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1">line_style</span>
+<span class="text-[10px] font-medium">Minimal</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-primary-container text-white shadow-md">
+<span class="material-symbols-outlined mb-1">styler</span>
+<span class="text-[10px] font-medium">Streetwear</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-transparent hover:border-primary/20 transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1">history_edu</span>
+<span class="text-[10px] font-medium">Vintage</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-transparent hover:border-primary/20 transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1">domain</span>
+<span class="text-[10px] font-medium">Corporate</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-transparent hover:border-primary/20 transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1">brush</span>
+<span class="text-[10px] font-medium">Graffiti</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-transparent hover:border-primary/20 transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1">draw</span>
+<span class="text-[10px] font-medium">Illustration</span>
+</button>
+</div>
+</div>
+<!-- Quick Controls -->
+<div class="space-y-4 pt-2">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-on-surface">Transparent Background</span>
+<button class="w-10 h-6 bg-primary rounded-full relative p-1 flex items-center justify-end">
+<div class="bg-white w-4 h-4 rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-on-surface">High Fidelity</span>
+<button class="w-10 h-6 bg-slate-300 rounded-full relative p-1 flex items-center justify-start">
+<div class="bg-white w-4 h-4 rounded-full shadow-sm"></div>
+</button>
+</div>
+</div>
+<!-- Generate Button -->
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold tracking-tight shadow-lg shadow-primary/20 hover:scale-[0.98] active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+                        Generate Results
+                    </button>
+<!-- Gallery Area -->
+<div class="pt-4 pb-8">
+<label class="block text-xs font-bold text-outline mb-4 uppercase tracking-tighter">Generated Results</label>
+<div class="grid grid-cols-2 gap-3">
+<!-- AI Card 1 -->
+<div class="group relative rounded-xl overflow-hidden bg-white shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Detailed graphic of a roaring tiger head in a circular vintage streetwear emblem with orange and black tones on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD88U9JWHzVOr_CUFvE3Pg_8BLWnY0D8UkP0bJGp8Anw4Q9O_HbSEyvdWuYdUM2NjPxduO-cl7jKda-trZVQFtXT9Z8WgTHcX0QcwonmbfdQCLenhHdaTYvQVd15GaiX-LtIYV1YMZVRJMp9U8WEkrxJ3e0xEhHs9lBUVLHaAD0rb85SISz_ig2J2IWa240nQh6QYy1pn0UrgmmI11g8CnEqKVgOUrAU4y6fImUg1ffgiDlFkFBe4DfVCBIODJ5nxLkIIdZsA6uh88e"/>
+<div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+<button class="bg-white text-primary text-[10px] font-bold py-2 px-4 rounded-lg flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-sm">add</span> Use Design
+                                    </button>
+</div>
+</div>
+<!-- AI Card 2 -->
+<div class="group relative rounded-xl overflow-hidden bg-white shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Abstract urban streetwear graphic of a stylized wild cat with neon outlines and grainy spray paint texture on black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJPFJ8bGSzWXmaG9f1vkR42gg5OOw7Md1IT7A2deltHnfSTXIzPuB0u-0QlZLt9YIoC3IS9NR1xp1o8AzPnr6dTkh0UGSm6-yd8Lpaak5_NKxTjQsVcXXTEGdGmQK1QZrk4sd5w3snhn1CTut72wHKqYIPeOB_dRT5OI-lwS9m-59pCjEQN9cyL9ajiDgaPedb3wyzRFq8PkvTIJuJIRCrpbY2j6Awg7SoOTQysszLWdP9UZMZjL33AiHLiLrNdr6VH2bnIp_cp_M_"/>
+<div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+<button class="bg-white text-primary text-[10px] font-bold py-2 px-4 rounded-lg flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-sm">add</span> Use Design
+                                    </button>
+</div>
+</div>
+<!-- AI Card 3 -->
+<div class="group relative rounded-xl overflow-hidden bg-white shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Minimalist geometric tiger icon with clean sharp lines and bold block colors for modern apparel branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTdisXnaTfYWfe1Q7WJsL4eIlA0_3LnqxD06szKG3TjVWN-p9kF4Lngf1Z37HfzweIEOXobrJUN1LYO5LMVD1XBZzdH6KJ0Pdii7PEbByXeheV1vQoB5VzX_4hKHFUykU0b1lYYsOPQaAIjXotvN0PStsFuwX0T3iDxM1Yhvku7iCQXSSbWUpntBx15mimu3qr0KjeDS4jcCcFzQM9H5Twuvzx8PUTqXjg9hmLqH0bT7ddxd2OmEdX6Ig6uFjXXNST_vam0x_ePQcL"/>
+<div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+<button class="bg-white text-primary text-[10px] font-bold py-2 px-4 rounded-lg flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-sm">add</span> Use Design
+                                    </button>
+</div>
+</div>
+<!-- AI Card 4 -->
+<div class="group relative rounded-xl overflow-hidden bg-white shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Intricate embroidery style tiger face illustration with vibrant threads and traditional Japanese art influence for high-end fashion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg1mVP093sbUpe6KESRFlFOLrWKdmoGNTisZgRlbS-aoWstrX3wqirXBbz4hPJ1AKsafKDxb9UdKqd3NmuENnGVwSVR1LrOigAYt5O0Yud9Vi8odJ9Z3qmxwLnC3i44armma3TJQ_jp2vjH5TrnyiAYh39U46N6bSM9HP86I7_U2AGBfbcRexcAKXio-TL6mZ-HEH0nJiKBtTc-0er5QEqyhEVLW5CkFIQJx2LUTDtE1bYmZKXCzLKGKrGpzEb8xtIrlff5nQKeCgI"/>
+<div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+<button class="bg-white text-primary text-[10px] font-bold py-2 px-4 rounded-lg flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-sm">add</span> Use Design
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Canvas Area -->
+<section class="flex-1 canvas-bg flex items-center justify-center relative p-12">
+<!-- Floating Controls -->
+<div class="absolute top-8 right-8 flex flex-col gap-2">
+<button class="bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg text-slate-600 hover:text-primary transition-all">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg text-slate-600 hover:text-primary transition-all">
+<span class="material-symbols-outlined">zoom_out</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg text-slate-600 hover:text-primary transition-all">
+<span class="material-symbols-outlined">center_focus_strong</span>
+</button>
+</div>
+<!-- T-Shirt Mockup -->
+<div class="relative w-[500px] h-[600px] flex items-center justify-center group">
+<!-- Mockup Image -->
+<img class="w-full h-full object-contain filter drop-shadow-2xl" data-alt="High-quality mockup of a plain high-neck black t-shirt laid flat on a neutral background with realistic fabric ripples and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCubH-NNX5zWc3e_dSfrpwX15LYL-ZUctCnCnMYuwlgrHqs-pxlQQ1NKkqyRHwa3bNYifykDeU0xH7mPNiw2kt0R1YaasQYluWryGhKWlBnsxJv8PhknPbezWZkFoM-IiTXS-dCk4B0A6CKH18QXGD1NF01gRfdNKDeuJanHZLBgt427lM39SjM24lroKfmdcfKpuHdlHmLVI2V1-Y60otffgHx-9YM_-tjqXvMHpilfdbUZFMlWwsq5MyT8j1tnS6__eQP4-jMz2dD"/>
+<!-- Printable Area Overlay -->
+<div class="absolute top-[25%] w-[45%] h-[40%] border-2 border-dashed border-primary/40 rounded-lg flex flex-col items-center justify-center bg-primary/5">
+<div class="w-48 h-48 opacity-90 mix-blend-screen relative">
+<img class="w-full h-full object-contain" data-alt="Realistic tiger emblem graphic being applied as a print to the chest of a black t-shirt mockup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN87NDJh7ROQeIckpUbir41nl7royRckgS-Nr4Jpdo42bj8jTjvfYM7MCmRrg0WOjo-K3Q98hO5b5Ji_DjTpHKoUo8C79pKY6OmFNuFwAXXTC-Wx9-km79RWi8qCZWeCAfofo959g86WOtGJHuJMfiDtd9opor-fWFVxdptPUJUxkqlwoE6QYNRYOhdTaaEuWotS_EtG6YZ7eAjCLTKsaU2lltoXm7ZEUEUg-ioUUDMVHaYm5jjBzvkwSOR-mgN97fHPJFNU6CQjO4"/>
+</div>
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold bg-primary text-white px-2 py-0.5 rounded uppercase tracking-widest whitespace-nowrap">Printable Area: 12" x 16"</span>
+<!-- Transform Handles (UI only) -->
+<div class="absolute -top-1 -left-1 w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute -bottom-1 -left-1 w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute -bottom-1 -right-1 w-2 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Canvas Labels -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-white">
+<span class="text-xs font-semibold text-slate-400">Front View</span>
+<div class="h-3 w-[1px] bg-slate-200"></div>
+<span class="text-xs font-bold text-blue-600">Premium Cotton Tee</span>
+<div class="h-3 w-[1px] bg-slate-200"></div>
+<span class="text-xs font-semibold text-slate-400">Black • Size M</span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Footer) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-12 pb-safe h-20 bg-white/90 backdrop-blur-md border-t border-slate-200/20 shadow-2xl">
+<button class="text-slate-600 px-6 py-3 hover:bg-slate-50 transition-transform font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+            Back to Catalog
+        </button>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Estimated Total</p>
+<p class="text-lg font-headline font-extrabold text-on-surface leading-none">$34.50 <span class="text-xs font-normal text-slate-400">/ unit</span></p>
+</div>
+<button class="bg-lime-400 text-slate-950 rounded-xl px-12 py-3 font-bold flex items-center gap-2 hover:bg-lime-300 transition-transform active:scale-95 shadow-lg shadow-lime-400/20">
+                Next Step
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

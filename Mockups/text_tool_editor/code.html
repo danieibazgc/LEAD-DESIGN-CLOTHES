@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes - Apparel Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "outline": "#737686",
+                        "on-primary-fixed": "#00174b",
+                        "surface-bright": "#f7f9fb",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-fixed": "#bff365",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary-fixed": "#131f00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary-fixed-dim": "#a4d64c",
+                        "surface-tint": "#0053db",
+                        "surface": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-container": "#d3ff88",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#00174b",
+                        "on-secondary-container": "#394c84",
+                        "inverse-surface": "#2d3133",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#354e00",
+                        "on-primary-container": "#eeefff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-container": "#acbfff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary-container": "#537800",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "tertiary": "#405e00",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#2563eb",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#495c95",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .text-panel-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-5rem)] h-16 px-8 flex items-center justify-between z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<span class="font-headline font-black text-blue-700 dark:text-blue-500 uppercase tracking-tighter">Custom Apparel Mockup</span>
+<div class="h-4 w-px bg-surface-container-highest mx-2"></div>
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-outline uppercase">Project: Summer_24_V1</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-600 dark:text-slate-400">
+<button class="hover:text-blue-500 transition-colors opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="undo">undo</span>
+</button>
+<button class="hover:text-blue-500 transition-colors opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="redo">redo</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<button class="hover:text-blue-500 transition-colors opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="hover:text-blue-500 transition-colors opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-headline font-bold text-xs tracking-wide shadow-lg shadow-primary/20">PREVIEW</button>
+</div>
+</header>
+<!-- SideNavBar (The Blueprint) -->
+<nav class="fixed left-0 top-0 h-full z-40 flex flex-col items-center py-6 bg-slate-50 dark:bg-slate-900 h-full w-20 flex-col no-border bg-slate-100 dark:bg-slate-800/50">
+<div class="mb-10">
+<span class="text-xl font-bold tracking-tighter text-blue-700 dark:text-blue-500 font-headline">A.</span>
+</div>
+<div class="flex flex-col gap-4 flex-1 items-center">
+<!-- Active state logic: Text tool is active -->
+<button class="w-12 h-12 flex items-center justify-center transition-all scale-95 active:scale-90 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl">
+<span class="material-symbols-outlined" data-icon="near_me">near_me</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center transition-all scale-95 active:scale-90 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center transition-all scale-95 active:scale-90 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center transition-all scale-95 active:scale-90 bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-300 rounded-xl shadow-sm">
+<span class="material-symbols-outlined" data-icon="text_fields" style="font-variation-settings: 'FILL' 1;">text_fields</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center transition-all scale-95 active:scale-90 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center transition-all scale-95 active:scale-90 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+</div>
+<div class="mt-auto">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-white overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a woman with modern lighting and soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJW35Q_AHMI2utf34J1rcztgZ1ShW0M6zsR-lP3pYtwiUhVEFPrHitpW4MACHrbmtn0r4abrn7KCp82xfXn6vkjLcxQXEuqtubLV2Ge-sevaIHKbGtCEIUYmKY4RuqajMP3yW3-AJs3CqSsgC15uGQIauaq73xIaLWN5fzurGgnEArN51O9x18Fqj5zN2ImsUyzwztU-a3UUVALj5vjw424tqqTGsvq_GroU8zMhaV4t4lo7dZvrdHVCogRgfjt0ToziYChdYb8Ld2"/>
+</div>
+</div>
+</nav>
+<!-- Contextual Side Panel (Text) -->
+<aside class="fixed left-20 top-0 h-full w-80 bg-white/40 backdrop-blur-xl z-20 pt-20 px-6 pb-24 overflow-y-auto no-scrollbar border-r border-transparent">
+<h2 class="font-headline font-extrabold text-xl text-on-surface tracking-tight mb-1">Text Editor</h2>
+<p class="font-label text-xs text-outline mb-8">Please enter the text below</p>
+<div class="space-y-8">
+<!-- Text Input -->
+<div class="space-y-2">
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body text-sm focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="YOUR TEXT HERE"></textarea>
+</div>
+<!-- Font Selector -->
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-outline">Font Family</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 font-body text-sm appearance-none cursor-pointer">
+<option>Manrope Sans</option>
+<option>Inter Display</option>
+<option>Playfair Display</option>
+<option>Space Mono</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline pointer-events-none" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-outline">Font Size</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-3 py-2">
+<input class="bg-transparent border-none w-full text-sm font-bold focus:ring-0 p-0" type="number" value="48"/>
+<span class="text-[10px] font-bold text-outline">PX</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-outline">Spacing</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-3 py-2">
+<input class="bg-transparent border-none w-full text-sm font-bold focus:ring-0 p-0" type="number" value="0"/>
+<span class="text-[10px] font-bold text-outline">EM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Style Toggles -->
+<div class="space-y-4">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-outline">Typography Style</label>
+<div class="flex items-center justify-between gap-1 p-1 bg-surface-container-low rounded-xl">
+<button class="flex-1 py-2 flex justify-center rounded-lg hover:bg-white transition-all text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_bold">format_bold</span>
+</button>
+<button class="flex-1 py-2 flex justify-center rounded-lg hover:bg-white transition-all text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_italic">format_italic</span>
+</button>
+<button class="flex-1 py-2 flex justify-center rounded-lg hover:bg-white transition-all text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_underlined">format_underlined</span>
+</button>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<button class="flex-1 py-2 flex justify-center rounded-lg hover:bg-white transition-all text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_align_left">format_align_left</span>
+</button>
+<button class="flex-1 py-2 flex justify-center rounded-lg bg-white shadow-sm text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_align_center">format_align_center</span>
+</button>
+<button class="flex-1 py-2 flex justify-center rounded-lg hover:bg-white transition-all text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_align_right">format_align_right</span>
+</button>
+</div>
+</div>
+<!-- Color Palette -->
+<div class="space-y-3">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-outline">Text Color</label>
+<div class="flex flex-wrap gap-3">
+<button class="w-6 h-6 rounded-full bg-white ring-2 ring-primary ring-offset-2"></button>
+<button class="w-6 h-6 rounded-full bg-on-background"></button>
+<button class="w-6 h-6 rounded-full bg-primary"></button>
+<button class="w-6 h-6 rounded-full bg-error"></button>
+<button class="w-6 h-6 rounded-full bg-tertiary-fixed"></button>
+<button class="w-6 h-6 rounded-full bg-secondary"></button>
+<button class="w-6 h-6 rounded-full border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]" data-icon="colorize">colorize</span>
+</button>
+</div>
+</div>
+<!-- Effects -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-body text-sm font-medium">Curved Text</span>
+<button class="w-10 h-5 bg-surface-container-highest rounded-full relative">
+<span class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full shadow-sm"></span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body text-sm font-medium">Outline / Shadow</span>
+<button class="w-10 h-5 bg-primary rounded-full relative">
+<span class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full shadow-sm"></span>
+</button>
+</div>
+</div>
+<button class="w-full bg-primary-container text-white py-4 rounded-xl font-headline font-extrabold text-sm tracking-widest transition-transform active:scale-[0.98] shadow-lg shadow-primary/30">
+                ADD TO DESIGN
+            </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-80 pl-20 pt-16 h-[calc(100vh-80px)] w-full flex flex-col items-center justify-center bg-surface relative overflow-hidden">
+<!-- View Switcher -->
+<div class="absolute top-8 right-8 z-10 flex bg-white/50 backdrop-blur shadow-sm p-1 rounded-xl">
+<button class="px-6 py-2 rounded-lg bg-white shadow-sm font-headline text-xs font-extrabold text-primary">FRONT</button>
+<button class="px-6 py-2 rounded-lg font-headline text-xs font-extrabold text-outline hover:text-on-surface transition-colors">BACK</button>
+</div>
+<!-- Canvas Area -->
+<div class="relative w-full max-w-4xl h-full flex items-center justify-center">
+<!-- T-Shirt Mockup -->
+<div class="relative w-[600px] aspect-square">
+<img alt="T-shirt mockup" class="w-full h-full object-contain mix-blend-multiply opacity-90" data-alt="Premium heavyweight white organic cotton t-shirt flat lay on a clean neutral background with realistic fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO493ySNBzza4A-hVHy_lGrsbPc3PHDr-uSa0-CMd07BHcITrFBhBfqax3QehbTXDgixJYfgrlPvCO8lbyXdxOp0vlwg07_PvFTh-_pn3ftUwsSxFRIHlHwn9VrdewFEHpU1jH3-kj5VxxpyVvmRGlk-KLoo1ffW0vq9n1jK-JNSbAQ7zpXZCxNSA0svMGeRHcOZId4j5GHccvuLcN5wgkV07dPp63G_mwkESPBtwR-OTATLXk2jInLs-ruEUlGovs_zscpKusVBdU"/>
+<!-- Printable Area Overlay -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[320px] border-2 border-dashed border-primary/30 rounded-lg flex items-center justify-center pointer-events-none">
+<span class="absolute -top-6 left-0 text-[10px] font-headline font-black text-primary/40 tracking-widest uppercase">Printable Area (12" x 16")</span>
+<!-- Text Preview -->
+<div class="cursor-move select-none">
+<h1 class="font-headline font-black text-5xl text-on-background tracking-tighter text-center leading-tight drop-shadow-sm">
+                            YOUR TEXT<br/>HERE
+                        </h1>
+</div>
+</div>
+</div>
+<!-- Floating Tool Palette (Selection) -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-2 p-2 bg-white/60 backdrop-blur-xl rounded-2xl shadow-xl border border-white/40">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]" data-icon="open_with">open_with</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="rotate_right">rotate_right</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="aspect_ratio">aspect_ratio</span>
+</button>
+<div class="h-px w-6 bg-outline-variant/30 mx-auto"></div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-5rem)] h-20 px-10 flex justify-between items-center z-50 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shadow-[0px_-4px_12px_rgba(0,0,0,0.03)]">
+<button class="flex items-center gap-2 text-slate-500 dark:text-slate-400 font-manrope uppercase tracking-widest text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 px-4 py-2 rounded-lg transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+            Back to Catalog
+        </button>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4">
+<span class="font-label text-[10px] font-bold text-outline tracking-widest uppercase">Mockup Rating:</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]" data-icon="star">star</span>
+</div>
+</div>
+<button class="bg-tertiary-fixed text-on-tertiary-fixed rounded-lg px-8 py-3 flex items-center gap-3 font-manrope uppercase tracking-widest text-xs font-black transition-all active:scale-[0.98] shadow-lg shadow-tertiary-fixed/20">
+                Next Step
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

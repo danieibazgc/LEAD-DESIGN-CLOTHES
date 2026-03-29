@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes | AI Background Removal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#00174b",
+              "surface-tint": "#0053db",
+              "error": "#ba1a1a",
+              "background": "#f7f9fb",
+              "primary-fixed-dim": "#b4c5ff",
+              "on-surface": "#191c1e",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "primary": "#004ac6",
+              "surface-dim": "#d8dadc",
+              "on-background": "#191c1e",
+              "surface-container-high": "#e6e8ea",
+              "surface-container-low": "#f2f4f6",
+              "outline": "#737686",
+              "on-surface-variant": "#434655",
+              "on-secondary-container": "#394c84",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#537800",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#bff365",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eceef0",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c3c6d7",
+              "tertiary-fixed-dim": "#a4d64c",
+              "on-tertiary-fixed-variant": "#354e00",
+              "secondary-fixed": "#dbe1ff",
+              "on-secondary-fixed-variant": "#31447b",
+              "inverse-primary": "#b4c5ff",
+              "tertiary": "#405e00",
+              "on-primary-fixed-variant": "#003ea8",
+              "surface-container-highest": "#e0e3e5",
+              "primary-fixed": "#dbe1ff",
+              "on-tertiary-fixed": "#131f00",
+              "primary-container": "#2563eb",
+              "secondary-container": "#acbfff",
+              "secondary": "#495c95",
+              "inverse-surface": "#2d3133",
+              "surface-bright": "#f7f9fb",
+              "surface": "#f7f9fb",
+              "on-primary-container": "#eeefff",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#d3ff88",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-fixed": "#00174b"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .checkerboard {
+        background-image: linear-gradient(45deg, #eceef0 25%, transparent 25%), linear-gradient(-45deg, #eceef0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #eceef0 75%), linear-gradient(-45deg, transparent 75%, #eceef0 75%);
+        background-size: 10px 10px;
+        background-position: 0 0, 0 5px, 5px 5px, 5px 0;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Anchor -->
+<header class="flex justify-between items-center w-full px-8 py-4 bg-[#f7f9fb] z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-[#191c1e] tracking-tighter font-headline">LEAD Design Clothes</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#44474a] font-medium hover:text-[#2563EB] transition-colors duration-200 font-label" href="#">Projects</a>
+<a class="text-[#2563EB] font-bold border-b-2 border-[#2563EB] font-label" href="#">Assets</a>
+<a class="text-[#44474a] font-medium hover:text-[#2563EB] transition-colors duration-200 font-label" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-label" placeholder="Search assets..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">settings</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden">
+<img alt="Designer Profile" data-alt="professional portrait of a fashion designer in a bright studio setting with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA84SRfpKf0rRh-Mf7PnRbb-ysgE0mVUUU88zh_4NvtngkxwG2M5I3k19F8FnU8eD5FDTN6Splq1NwwgJLPpgOTgkUNsvXXSKwuLSTjez8vFtyvvKvdPab4uGQRNU8zwXD5_C3z6DWtJ3UwOW3B4YMihB7CwdQEPxskG1X0xhT_jlaMkqPmTPLXzjvDlSvhwTlJy23zpFEcXYOjxV1XZRAb9Z0HqcTD4_ujb_9AJw23v2umEJQI2E2IAqiKYqyaEqPINIy1_spm_YOt"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Side Navigation Toolbar (Vertical) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col items-center py-6 z-40 bg-[#f1f3f4] w-20">
+<div class="mb-8 flex flex-col items-center">
+<div class="w-10 h-10 bg-primary rounded-lg mb-1 flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<span class="text-[9px] font-bold uppercase tracking-tighter text-outline">V1.0.4</span>
+</div>
+<nav class="flex flex-col gap-4 items-center">
+<button class="p-3 text-outline hover:bg-[#e8eaed] rounded-xl transition-all">
+<span class="material-symbols-outlined">near_me</span>
+</button>
+<button class="p-3 text-outline hover:bg-[#e8eaed] rounded-xl transition-all">
+<span class="material-symbols-outlined">draw</span>
+</button>
+<button class="p-3 text-outline hover:bg-[#e8eaed] rounded-xl transition-all">
+<span class="material-symbols-outlined">title</span>
+</button>
+<button class="p-3 bg-white text-[#2563EB] rounded-xl shadow-sm transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+</button>
+<button class="p-3 text-outline hover:bg-[#e8eaed] rounded-xl transition-all">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</nav>
+<div class="mt-auto flex flex-col gap-4 items-center">
+<button class="p-3 text-outline hover:bg-[#e8eaed] rounded-xl transition-all">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-3 text-outline hover:bg-[#e8eaed] rounded-xl transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</aside>
+<!-- AI Background Removal Side Panel -->
+<main class="ml-20 flex flex-1 w-full relative">
+<section class="w-[400px] h-full bg-surface-container-low p-6 flex flex-col gap-6 overflow-y-auto no-scrollbar z-30">
+<div class="flex items-center justify-between">
+<h1 class="font-headline text-xl font-extrabold tracking-tight">AI Background Removal</h1>
+<button class="material-symbols-outlined text-outline">close</button>
+</div>
+<!-- Comparison View -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Preview Comparison</span>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">PRO</span>
+</div>
+<div class="grid grid-cols-2 gap-3 h-48">
+<div class="relative rounded-xl overflow-hidden bg-surface-container-highest group">
+<img class="w-full h-full object-cover" data-alt="high resolution logo graphic on a solid beige background for garment branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwBRpf2ndzPcUEcQV8OGLx3N8KvoOIDbqP61j9rXQ1YpPZeNT6EVg0jDZSMVoXXd4iAzYrDq5btk8HeY9Wye5uLlabMyxcUUXQMHPpip7tJmoYNwEXVj84C0AC6Hu0ivK2soVKjcSiuOA33qgbIU635NmogLJSLa1V_IFAF3XaNORwoO6KhHylod9Mr-ej88Ylr2g7_qmbu-R_XOCVZQybjmgjTLD553xLE_QD2TaOw-pEhBj-_l8chnJRS4vCjezwVYCsZ9eoTV0X"/>
+<div class="absolute bottom-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">Original</div>
+</div>
+<div class="relative rounded-xl overflow-hidden checkerboard group border-2 border-primary">
+<img class="w-full h-full object-contain mix-blend-multiply opacity-90" data-alt="the same logo graphic now isolated on a transparent background for digital placement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu4RIuFTkelmtx7Shds6KuBL8u5-mLkzA552sELTLlACc_vz0VldipTJ7-cgBTUiPpO-ur3UJlB9S23BxTsa0drOrBOsX4SGggjeLUEGby8WVPluLDlAVY-gKz6nGI0LtXOxii9uJV6CEmI2Dcg6lrc3PbOx6NW6ingb-4xG3Qm9_ELEBleviSCHGGTF9kmqz2vCq2apcb9nPnBEO5To8o82LJkxOtKoJbPePBvXBRIgztx-U0jdFMJUmAaNw4foYhS59xFZIMRlpP"/>
+<div class="absolute bottom-2 left-2 bg-primary text-white text-[10px] px-2 py-1 rounded-md">Processed</div>
+<!-- AI Analyzing Overlay (Simulated State) -->
+<div class="absolute inset-0 bg-white/40 flex items-center justify-center backdrop-blur-[2px]">
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">AI Analyzing...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Controls -->
+<div class="space-y-4">
+<button class="w-full bg-primary-container hover:bg-primary text-white py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+                        Remove Background
+                    </button>
+<div class="bg-surface-container-lowest p-4 rounded-xl space-y-4">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium">Auto detect subject</label>
+<div class="w-10 h-5 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-white rounded-full ml-auto"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium">Refine edges</label>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium">Keep transparency</label>
+<div class="w-10 h-5 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-white rounded-full ml-auto"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Manual Cleanup -->
+<div class="space-y-3">
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Manual Refine</span>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-highest py-3 rounded-lg flex flex-col items-center gap-1 border-b-2 border-primary">
+<span class="material-symbols-outlined text-primary">brush</span>
+<span class="text-[10px] font-bold">ERASE</span>
+</button>
+<button class="flex-1 bg-surface-container-highest py-3 rounded-lg flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">restore</span>
+<span class="text-[10px] font-bold">RESTORE</span>
+</button>
+<button class="flex-1 bg-surface-container-highest py-3 rounded-lg flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">zoom_in</span>
+<span class="text-[10px] font-bold">ZOOM</span>
+</button>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-[11px] font-medium text-outline">Brush Size</span>
+<span class="text-[11px] font-bold">24px</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full relative">
+<div class="absolute left-0 top-0 h-full w-[40%] bg-primary rounded-full"></div>
+<div class="absolute left-[40%] top-1/2 -translate-y-1/2 w-3 h-3 bg-white border-2 border-primary rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- Success State Action -->
+<div class="mt-auto pt-6 border-t border-outline-variant/20">
+<button class="w-full bg-tertiary-fixed hover:bg-tertiary-fixed-dim text-on-tertiary-fixed py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 group">
+                        Apply to Design
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Main Canvas Stage -->
+<section class="flex-1 h-full bg-surface relative flex items-center justify-center overflow-hidden">
+<!-- Front/Back Toggle -->
+<div class="absolute top-8 right-8 flex bg-surface-container-low p-1 rounded-full shadow-sm">
+<button class="px-6 py-2 rounded-full bg-white font-bold text-sm shadow-sm">Front</button>
+<button class="px-6 py-2 rounded-full text-outline font-bold text-sm hover:text-on-surface">Back</button>
+</div>
+<!-- Main Mockup Display -->
+<div class="w-[600px] h-[700px] relative flex items-center justify-center">
+<!-- T-Shirt Image -->
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="premium heavy-weight white cotton t-shirt mockup front view on a clean neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpaaR1XBcAdpTMm-XEyaEO56CqIDNV9Ym_ZBCYdGPqMTFiqhWOUdNM5jllkyAk7hp6FKW8XNg362qYHbN_PuA_boU-AJI-tyHfJScCtfhkRqCVV0f_0DkfLHeNGTYHCoi_3ZEcQMEwLwNW4mB7zMugeagFc9OSSKTwv0WABLgagcX_hj3u-UH5dg6Zj5BvrPlxTvUzvdNzIlmIY9Bk0Y7xk6f54h03f5F7FOXLtH4g_G4QLCjjLr61MjlsDy_DBGvbb_yDcuKa1w9v"/>
+<!-- Logo Overlay Preview -->
+<div class="absolute top-[35%] left-1/2 -translate-x-1/2 w-48 h-48 flex items-center justify-center pointer-events-none">
+<div class="relative w-full h-full opacity-80 mix-blend-multiply">
+<img class="w-full h-full object-contain" data-alt="transparent isolated graphic being placed on the chest area of the white t-shirt mockup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPe7Qp0HBqyskV7kNfOtvgtyahou4VFNirv-o8-ZO4jRQRNdopk4tBeUbGlUpJ7CdZi27nbDADYkhDlGSs9Ypwlahk944giF1w_Qpb80acv8nbRW9svQ6qVGEID82DLPaMXFLDLTkwELrs5q1IvRRVHEWEPWR0DLBn4jDbnMbEJpIB81rKUdq0W4JIRWVC-R7jqZpbde7vx0ZmehHnE-kom8VvGc-DOChpArx_Tf1wwMhVjSe29yUQmfywn900wtRAOnbhkgeK7rC4"/>
+<!-- Alignment Guides -->
+<div class="absolute -inset-4 border border-primary/30 border-dashed rounded-lg"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-0.5 rounded font-bold">PLACEMENT PREVIEW</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell -->
+<div class="absolute bottom-0 left-0 w-full px-12 py-8 flex justify-between items-center bg-gradient-to-t from-background to-transparent">
+<button class="flex items-center gap-2 text-on-surface font-bold hover:text-primary transition-colors group">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        Back to Catalog
+                    </button>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end mr-4">
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Step 03 of 05</span>
+<span class="text-sm font-bold">Graphic Placement</span>
+</div>
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-10 py-4 rounded-xl font-bold shadow-lg shadow-tertiary-fixed/20 hover:scale-105 transition-transform flex items-center gap-2">
+                            Next Step
+                            <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Zoom/Navigation Controls -->
+<div class="absolute bottom-28 right-8 flex flex-col gap-2 glass-panel p-2 rounded-xl shadow-xl border border-white/20">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="h-[1px] bg-outline-variant/30 w-full"></div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="h-[1px] bg-outline-variant/30 w-full"></div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes | LEAD Design Clothes</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e6e8ea",
+              "on-error": "#ffffff",
+              "on-secondary-container": "#394c84",
+              "tertiary-fixed": "#bff365",
+              "secondary-fixed-dim": "#b4c5ff",
+              "primary-fixed-dim": "#b4c5ff",
+              "secondary": "#495c95",
+              "background": "#f7f9fb",
+              "surface-container-highest": "#e0e3e5",
+              "on-tertiary-fixed-variant": "#354e00",
+              "on-primary-fixed": "#00174b",
+              "on-primary-container": "#eeefff",
+              "surface-variant": "#e0e3e5",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#434655",
+              "on-primary": "#ffffff",
+              "surface-bright": "#f7f9fb",
+              "outline": "#737686",
+              "tertiary": "#405e00",
+              "surface": "#f7f9fb",
+              "on-error-container": "#93000a",
+              "on-tertiary-container": "#d3ff88",
+              "primary-fixed": "#dbe1ff",
+              "outline-variant": "#c3c6d7",
+              "tertiary-container": "#537800",
+              "surface-tint": "#0053db",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-background": "#191c1e",
+              "primary": "#004ac6",
+              "error": "#ba1a1a",
+              "primary-container": "#2563eb",
+              "surface-container": "#eceef0",
+              "inverse-on-surface": "#eff1f3",
+              "tertiary-fixed-dim": "#a4d64c",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#b4c5ff",
+              "secondary-container": "#acbfff",
+              "surface-dim": "#d8dadc",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#dbe1ff",
+              "inverse-surface": "#2d3133",
+              "on-tertiary-fixed": "#131f00",
+              "on-primary-fixed-variant": "#003ea8",
+              "on-surface": "#191c1e",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "on-secondary-fixed": "#00174b"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .perspective-1000 { perspective: 1000px; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background overflow-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-8 h-16 w-full fixed top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none">
+<div class="flex items-center gap-4">
+<span class="font-black text-xl text-slate-900 dark:text-slate-50 font-headline uppercase tracking-tight">LEAD Design Clothes</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<nav class="flex gap-6 items-center">
+<button class="font-['Manrope'] font-semibold uppercase tracking-widest text-xs text-blue-600 border-b-2 border-blue-600 pb-1 opacity-80 hover:opacity-100 transition-opacity">Front</button>
+<button class="font-['Manrope'] font-semibold uppercase tracking-widest text-xs text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 opacity-80 hover:opacity-100 transition-opacity">Back</button>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<button class="material-symbols-outlined hover:text-primary transition-colors">undo</button>
+<button class="material-symbols-outlined hover:text-primary transition-colors">redo</button>
+<button class="material-symbols-outlined hover:text-primary transition-colors">zoom_in</button>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-outline hover:text-on-surface transition-colors">Save Draft</button>
+<button class="px-6 py-2 bg-primary text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md shadow-primary/20">Render</button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Close up professional portrait of a female designer with clean lighting and neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeAOt2KWCsInqnwmBWVxEVty77WDOeYVU-L1SyXMNoLQmQeDk_GEm9HYks0OzTj-PGEpL4RlRhmNDT4M8GfcRZfppliII4VxEsxUirAcJ4F57yqDTzaTJ3jEtNfBOAtYXvwTjjB5xdk9kAs-s5oK9FRj4ogZNfw51r6NGRQYhnxLs2VwXrtXV49UhQHxESo0muNbJaTN6YqGV_xXoE5bXgBhNVh7hAUHBjkgiBKk6F1eWNo-Y8LOjE-y6uEfH_BoF0yAj0sp59LFq5"/>
+</div>
+</div>
+</header>
+<!-- Main Layout Container -->
+<main class="flex h-screen pt-16 pb-20 overflow-hidden">
+<!-- SideNavBar (Rail) -->
+<aside class="fixed left-0 top-0 h-full z-40 bg-slate-50 dark:bg-slate-900 h-screen w-20 flex flex-col border-r-0 font-['Manrope'] tracking-tight antialiased pt-16">
+<div class="flex flex-col items-center py-8 gap-8 h-full">
+<!-- Tab: Blank -->
+<button class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">checkroom</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Blank</span>
+</button>
+<!-- Tab: Colors -->
+<button class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">palette</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Colors</span>
+</button>
+<!-- Tab: Upload (Active) -->
+<div class="w-full relative flex flex-col items-center">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-blue-600 rounded-l-full"></div>
+<button class="w-full flex flex-col items-center gap-1 text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-950 shadow-sm rounded-l-none rounded-r-xl py-4 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">cloud_upload</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Upload</span>
+</button>
+</div>
+<!-- Tab: Text -->
+<button class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">title</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Text</span>
+</button>
+<!-- Tab: Layers -->
+<button class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">layers</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Layers</span>
+</button>
+<!-- Tab: AI -->
+<button class="mt-auto flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors scale-95 active:scale-90 transition-transform mb-6">
+<span class="material-symbols-outlined text-2xl text-primary">auto_awesome</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">AI</span>
+</button>
+</div>
+</aside>
+<!-- Contextual Panel (Uploads) -->
+<section class="ml-20 w-80 bg-surface-container-low h-full flex flex-col border-r-0 z-30 overflow-y-auto">
+<div class="p-6">
+<h2 class="font-headline text-lg font-bold text-on-surface mb-1">Asset Library</h2>
+<p class="text-xs text-outline font-label mb-6">Manage your studio uploads</p>
+<!-- Upload Area -->
+<div class="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 flex flex-col items-center justify-center gap-3 hover:bg-surface-container transition-colors cursor-pointer group mb-8">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</div>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Upload New</span>
+</div>
+<!-- Active Asset Control -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm mb-8">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg overflow-hidden flex items-center justify-center">
+<img alt="Active Graphic" class="w-12 h-12 object-contain" data-alt="Modern abstract minimalist brand logo with clean geometric shapes in deep blue and black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFgXKo02HxtajlRvJQ0fmKkPtrSM4hvO46mdyqxFMxQoVxP7i-Cp4a3GOwIYz_rsrk8aIr8KOc_17hVJ96iLYyas3T-EYXP8oqBRuEhNf2v1z-L3XwCUs-I_x60sslhv35IDL6S2jczvEErtpWmzbwjJlseUG762FjgL819ZPSrtn6Qd8w3GL6rHcY1nMZCRZNKx-d4XQ1J7ypy5iHdFcuLGixQudlJKRyTFyKmslD3KI7BBasXecAxm55XQqBmfeuzynKYNzbTREK"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">atelier_logo_v1.png</p>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest">Selected Asset</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2.5 bg-on-surface text-surface-container-lowest rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                        Remove Background
+                    </button>
+</div>
+<!-- Recent Assets Grid -->
+<h3 class="text-[10px] font-bold text-outline uppercase tracking-widest mb-4">Recent Assets</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="aspect-square bg-surface-container-high rounded-lg hover:ring-2 ring-primary cursor-pointer transition-all overflow-hidden flex items-center justify-center p-4">
+<img alt="Asset" class="max-w-full max-h-full" data-alt="Cyberpunk style neon typography graphic on transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfbcX49OBumeVG1aJAW2vFhEHRoySKF6o1Cy9A2gnbXi6rYeOTId5NrNKnoQ8wOpZFDxf4QKHvYwjQbU2NXh8nVSomtvyZr95U02e7xz88x7PvS4YXG1yjJuxeInskUdr5wo4JEY0sbs2QN06A-kQfHzesBmNVlLo1Th5BPU_KagPAgX4uovsHPaR9TF4v3SjlkjIapfWzCowvcDArKms1oJHVla4mVs90ruNi48xoQoSJncVi3p2Org7dFidzd1kjMz02tkxgidg3"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg hover:ring-2 ring-primary cursor-pointer transition-all overflow-hidden flex items-center justify-center p-4">
+<img alt="Asset" class="max-w-full max-h-full" data-alt="Classic vintage typography badge logo for apparel design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuOMick1JeiVQSLSLKxB4AwIZkscnfEwdVF1xR20MlVQDw8MneqZdWgf45PGZ0gsZAk9OFqQqe102_2KjPsrN9ZnGCchYL1XtMX_l7msaePstNNqhGcryGbx4b3ZXzuft_5Ob3vpFXj7wa2epHgtAKChT9akq1zVy3yHx_Sy9-AFzoXKv8u0VeZIhKRkzbTvfa3GOJgnXHPoBLdrqzUMGMJ-cUjAAEmCBxMWtJejOYFMCqLH8DCeHuABGBBq74xs2m6HJmpMGEx6L4"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg hover:ring-2 ring-primary cursor-pointer transition-all overflow-hidden flex items-center justify-center p-4">
+<img alt="Asset" class="max-w-full max-h-full" data-alt="Minimalist linework illustration of a mountain peak" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5jcjxi4YwtWGT7Dq75d0bEPwO2dEPTtjmtmaFxIZuAV0btlr5tH1_MEH-jnG0Efdf6hTWvA9-VYFUlibffLrS5LybjZ06U7k4Ukk735flsA6b7O7liIt-DeCfrKKHSAc6jS_GJzbBEPpiMy5YdzEWh-vKXz4AzYQmR4qVzF-2QNsg8iUueMWKTxyANxmmz21TJ9j4WOlccT3HKDScsGgqTkZLMRtTvAolZvG8obC-Gd7C4vJgwJYGAo8fSvSG2VSzNyreeWhBDBSU"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg hover:ring-2 ring-primary cursor-pointer transition-all overflow-hidden flex items-center justify-center p-4">
+<img alt="Asset" class="max-w-full max-h-full" data-alt="Organic fluid abstract shapes in monochrome ink style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVDqs0pbMAPBHlzyUXaNkTc1FLAmTn4tLOEaU-UgSoQska3E58A5CsADSrxrX1ZYEshLdQVr3QloPaileqi7t2nQ26m2BPlKPbU-wynTTvqi-6Pq07NEYaHB6mglaf5x6lzrRDGRa1nCytQ_wtjh9ct1ZA-haaaW56L8uKn5Io6rAssMEmwERfe_7FghhKcUB_j-dQpd8UAppKfwZRhycQ46OP71j8TQYgYSFpQTNjjDd1WTm6tCb1FgnYTM30syiNe7-l7TD-o6J"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Canvas -->
+<section class="flex-grow h-full bg-surface-container relative flex items-center justify-center p-12">
+<!-- Mockup Stage -->
+<div class="relative w-full max-w-2xl aspect-[4/5] flex items-center justify-center">
+<!-- T-Shirt Image -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<img alt="Realistic T-Shirt Mockup" class="w-full h-full object-contain drop-shadow-2xl" data-alt="High-resolution studio shot of a blank premium white cotton heavy-weight t-shirt flat lay with soft shadows on light gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUX4xWcHRxteOU0uESQk-_-RDEPH_HhPLLyvGIqvhtyD0hcTwxpgGKqypii457qtzJ6LwL9W4jVht87ufslq0d-bJvINc5aPbtVwjwZMP4s34qvSx7X_8t0vGvJri82dOE7vhCKKHfTR2yfBvSOq0Rj10I47XSKJlZT0AAC0A6dKrcNXIrPfbb_CQHK5ukK5CkoWtTrV13XqFYrWeK83ahh1edpNJjuW812bWO7Q7FzQ5WsjN6Y6xvQiDEqma-oeyLp-F_9Jtj2Fc1"/>
+</div>
+<!-- Printable Area & Design Layer -->
+<div class="relative w-[50%] h-[60%] border-2 border-primary/20 border-dashed rounded-lg flex items-center justify-center mt-[-10%] group">
+<!-- Helper Text -->
+<span class="absolute -top-6 left-0 text-[10px] font-bold text-primary/40 uppercase tracking-widest">Printable Area: 12" x 16"</span>
+<!-- Logo Design (Draggable UI Simulation) -->
+<div class="relative w-40 h-40 group/logo">
+<!-- Object Controls (Floating) -->
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 glass-panel rounded-full px-4 py-1.5 flex items-center gap-4 shadow-xl border border-white/50 opacity-0 group-hover/logo:opacity-100 transition-opacity">
+<button class="material-symbols-outlined text-sm text-on-surface hover:text-primary transition-colors">delete</button>
+<div class="w-[1px] h-3 bg-outline-variant"></div>
+<button class="material-symbols-outlined text-sm text-on-surface hover:text-primary transition-colors">content_copy</button>
+<div class="w-[1px] h-3 bg-outline-variant"></div>
+<button class="material-symbols-outlined text-sm text-on-surface hover:text-primary transition-colors">lock_open</button>
+</div>
+<!-- Logo Content -->
+<div class="w-full h-full p-4 hover:ring-2 ring-primary ring-offset-4 rounded-sm cursor-move transition-all flex items-center justify-center">
+<img alt="Active Logo" class="w-full h-full object-contain mix-blend-multiply opacity-90" data-alt="Clean minimalist logo graphic with sharp edges and modern aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdno2dbN3nR5_NS4srQv29k2ACUgR05KBiP3GkekGhp89xQN1c7k5jLwN7tHPSFgw4MEsayYW7Y1OjzjuY98A6cg0m5G-gU69DxfiFI0bIz4jKhYtxZdV6gV3QDERjHtaFruDR8E5ndeTG5KGmjrPHbLc-OuvrDwUecBodJYJC_MC2Wdykw83fql2WYlMtCQTaybmDHtYUIM4W1QV8smWAGEE0My5jYyEW05raXpwa9XpItxUhmK8Cp82MMvAPPK7pRiI8k9Gopfc4"/>
+</div>
+<!-- Resize Handle -->
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-primary border-2 border-white rounded-full opacity-0 group-hover/logo:opacity-100 cursor-nwse-resize"></div>
+</div>
+</div>
+<!-- View Toggle Badge (Floating) -->
+<div class="absolute top-0 right-0 glass-panel p-2 rounded-xl border border-white/50 shadow-lg flex flex-col gap-2">
+<button class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-xl">front_hand</span>
+</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-outline transition-colors">
+<span class="material-symbols-outlined text-xl">back_hand</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Floating Property Inspector (Bento style) -->
+<div class="fixed right-8 top-24 w-64 glass-panel rounded-2xl p-6 shadow-2xl border border-white/40 z-40">
+<h4 class="text-[10px] font-bold text-outline uppercase tracking-[0.2em] mb-4">Object Specs</h4>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div>
+<label class="text-[10px] font-bold text-on-surface uppercase opacity-60">Width</label>
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold">14.2</span>
+<span class="text-[10px] text-outline">in</span>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface uppercase opacity-60">Rotation</label>
+<div class="flex items-center gap-1">
+<span class="text-sm font-bold">0</span>
+<span class="text-[10px] text-outline">°</span>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label class="text-[10px] font-bold text-on-surface uppercase opacity-60 block mb-2">Print Method</label>
+<div class="flex items-center gap-2 bg-surface-container/50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-sm">print</span>
+<span class="text-xs font-bold text-on-surface">Screen Print</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-on-surface">Snap to Grid</span>
+<div class="w-8 h-4 bg-primary rounded-full relative">
+<div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-12 z-50 bg-white dark:bg-slate-950 h-20 border-t-0 tonal-shift bg-slate-50 dark:bg-slate-900 font-['Inter'] font-medium text-sm shadow-[0px_-4px_12px_rgba(0,0,0,0.03)]">
+<button class="flex items-center gap-2 text-slate-600 dark:text-slate-300 px-6 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 active:translate-y-0.5 transition-all rounded-lg">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+<span class="uppercase tracking-widest text-[11px] font-bold">Back to Catalog</span>
+</button>
+<div class="flex items-center gap-8">
+<div class="hidden md:flex flex-col items-end">
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Base Item Cost</span>
+<span class="text-lg font-bold text-on-surface font-headline">$24.00 USD</span>
+</div>
+<button class="bg-lime-400 dark:bg-lime-500 text-slate-900 font-bold px-8 py-3 rounded-lg flex items-center gap-3 hover:brightness-105 active:translate-y-0.5 transition-all shadow-lg shadow-lime-500/20">
+<span class="uppercase tracking-widest text-xs">Next</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

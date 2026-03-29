@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEAD Design Clothes - Color Selection</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#f7f9fb",
+              "on-secondary-fixed": "#00174b",
+              "surface-bright": "#f7f9fb",
+              "on-primary": "#ffffff",
+              "primary-container": "#2563eb",
+              "primary-fixed": "#dbe1ff",
+              "inverse-surface": "#2d3133",
+              "tertiary": "#405e00",
+              "primary": "#004ac6",
+              "on-secondary-container": "#394c84",
+              "tertiary-container": "#537800",
+              "on-primary-container": "#eeefff",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c1e",
+              "surface-container-low": "#f2f4f6",
+              "surface-container-highest": "#e0e3e5",
+              "outline": "#737686",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#bff365",
+              "secondary-fixed": "#dbe1ff",
+              "surface-container": "#eceef0",
+              "on-surface-variant": "#434655",
+              "surface-tint": "#0053db",
+              "secondary": "#495c95",
+              "on-tertiary-fixed": "#131f00",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#b4c5ff",
+              "on-tertiary-container": "#d3ff88",
+              "background": "#f7f9fb",
+              "surface-variant": "#e0e3e5",
+              "on-error": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#354e00",
+              "inverse-on-surface": "#eff1f3",
+              "on-surface": "#191c1e",
+              "outline-variant": "#c3c6d7",
+              "surface-dim": "#d8dadc",
+              "secondary-container": "#acbfff",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-primary-fixed-variant": "#003ea8",
+              "inverse-primary": "#b4c5ff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#00174b",
+              "tertiary-fixed-dim": "#a4d64c",
+              "secondary-fixed-dim": "#b4c5ff",
+              "surface-container-high": "#e6e8ea",
+              "surface-container-lowest": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col p-4 border-r-0 h-screen w-64 left-0 sticky bg-slate-50 dark:bg-slate-950 z-20">
+<div class="mb-8 px-2">
+<div class="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tighter">LEAD Design Clothes</div>
+<div class="text-xs text-slate-500 font-medium">V2.4 Active</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Canvas Tab -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+                    Canvas
+                </a>
+<!-- Layers Tab -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+                    Layers
+                </a>
+<!-- Colors Tab (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2 text-blue-600 dark:text-blue-400 font-bold bg-white dark:bg-slate-900 rounded-lg shadow-sm translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+                    Colors
+                </a>
+<!-- Fabrics Tab -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="texture">texture</span>
+                    Fabrics
+                </a>
+<!-- History Tab -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                    History
+                </a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Help
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                    Support
+                </a>
+<button class="w-full mt-4 bg-primary text-on-primary py-2.5 rounded-lg font-bold text-sm tracking-tight hover:opacity-90 transition-opacity">
+                    Export Assets
+                </button>
+</div>
+</aside>
+<!-- Contextual Side Panel -->
+<section class="w-80 bg-surface-container-low z-10 flex flex-col">
+<header class="p-6">
+<h2 class="text-xl font-extrabold tracking-tight text-on-surface mb-1">Choose color</h2>
+<p class="text-sm text-outline font-medium">Select base garment colorway</p>
+</header>
+<div class="flex-1 overflow-y-auto px-6 pb-6">
+<div class="grid grid-cols-2 gap-3">
+<!-- White -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full border border-outline-variant bg-white mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">White</span>
+</button>
+<!-- Black (SELECTED) -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest ring-2 ring-primary transition-all">
+<div class="w-12 h-12 rounded-full bg-[#191c1e] mb-2 shadow-inner"></div>
+<span class="text-xs font-bold text-primary">Black</span>
+<div class="absolute top-2 right-2 bg-primary text-white rounded-full p-0.5 scale-75">
+<span class="material-symbols-outlined !text-[14px]">check</span>
+</div>
+</button>
+<!-- Natural -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full bg-[#f5f5dc] mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">Natural</span>
+</button>
+<!-- Fire Red -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full bg-[#d00000] mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">Fire Red</span>
+</button>
+<!-- Navy -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full bg-[#000080] mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">Navy</span>
+</button>
+<!-- Royal -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full bg-[#4169e1] mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">Royal</span>
+</button>
+<!-- Military Green -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full bg-[#4b5320] mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">Military Green</span>
+</button>
+<!-- Silver -->
+<button class="group relative flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 rounded-full bg-[#c0c0c0] mb-2 shadow-inner"></div>
+<span class="text-xs font-semibold text-on-surface">Silver</span>
+</button>
+</div>
+<!-- Production Details Section -->
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Production Details</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="speed">speed</span>
+<div>
+<div class="text-sm font-bold text-on-surface">Printing Speed</div>
+<div class="text-xs text-outline">2-4 days</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="package_2">package_2</span>
+<div>
+<div class="text-sm font-bold text-on-surface">Minimum Order</div>
+<div class="text-xs text-outline">1 unit</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Canvas Area -->
+<main class="flex-1 relative flex flex-col bg-surface overflow-hidden">
+<!-- Top App Bar Utility -->
+<div class="h-16 flex justify-between items-center px-8 w-full">
+<div class="flex items-center gap-4">
+<span class="text-sm font-bold tracking-tight text-on-surface">Project: SS24_Basic_Tee</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] font-bold rounded-md">DRAFT</span>
+</div>
+<!-- View Toggle -->
+<div class="flex bg-surface-container rounded-lg p-1">
+<button class="px-4 py-1.5 rounded-md text-xs font-bold bg-white text-primary shadow-sm">Front</button>
+<button class="px-4 py-1.5 rounded-md text-xs font-bold text-outline hover:text-on-surface-variant transition-colors">Back</button>
+</div>
+</div>
+<!-- Canvas Container -->
+<div class="flex-1 relative flex items-center justify-center p-12">
+<!-- Mockup Stage -->
+<div class="relative w-full max-w-2xl aspect-[4/5] flex items-center justify-center">
+<!-- Glassmorphism Backdrop for contrast -->
+<div class="absolute inset-0 bg-surface-container-low/50 backdrop-blur-3xl rounded-[3rem]"></div>
+<!-- Mockup Image -->
+<div class="relative z-10 w-full h-full flex items-center justify-center">
+<img alt="Black T-shirt Mockup" class="max-w-[85%] max-h-[85%] object-contain drop-shadow-2xl" data-alt="Premium high-resolution studio shot of a black heavyweight cotton t-shirt flat lay against a neutral grey background with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApIjZYbiJvGyat9ExAz6Kq0obITNwk5bNnFAml_Osi9myWV3egig0vqH_vYCZZ0ZoPi688Zzr0IzUtExlbh1t9_Kxq9Smp57cqXzRkJ5K1nqtZ7mxG48UIin_waV2J0mwZI38MWRr-c0y_DGRIr1DTxH9QwUASL2F2Ttx_d5bZNK5rs-viEk4GOgRw4T8uEhdJGim0AkIFfGlHCfOzG6UQlc2HzkqcB5n4S9YjZYTLrkv20KkE2-nvMWRUkz1qzdeGghZ5Xl0NoX-J"/>
+<!-- Printable Area Outline -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[55%] border-2 border-dashed border-primary/30 rounded-lg pointer-events-none flex items-center justify-center">
+<div class="bg-primary/10 px-2 py-1 rounded text-[10px] font-bold text-primary tracking-tighter uppercase">Printable Area</div>
+</div>
+</div>
+<!-- Floating Tool Palette (Glassmorphism) -->
+<div class="absolute right-8 bottom-8 flex flex-col gap-3 z-20">
+<button class="w-12 h-12 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md shadow-lg flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="w-12 h-12 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md shadow-lg flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">grid_on</span>
+</button>
+<button class="w-12 h-12 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md shadow-lg flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">center_focus_strong</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Global Action Bar -->
+<footer class="h-20 bg-surface-container-lowest flex items-center justify-between px-10 shadow-[0_-1px_10px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Base Cost</span>
+<span class="text-lg font-extrabold text-on-surface">$12.50 <span class="text-xs font-medium text-outline">/ unit</span></span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2.5 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                        Save to Projects
+                    </button>
+<!-- Key Action (Lime) -->
+<button class="flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed px-8 py-3 rounded-xl font-extrabold text-sm tracking-tight shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                        Next Step
+                        <span class="material-symbols-outlined !text-lg">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
