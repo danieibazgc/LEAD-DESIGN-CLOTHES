@@ -8,30 +8,56 @@ import type { Garment } from "@/lib/types/domain";
 export const GARMENTS: Garment[] = [
   {
     id: "classic-tee",
-    name: "Classic Cotton T-Shirt",
+    name: "Polo Classic",
     category: "tops",
     colors: [
-      { id: "white", name: "White", hex: "#FFFFFF" },
-      { id: "black", name: "Black", hex: "#191c1e" },
-      { id: "natural", name: "Natural", hex: "#f5f5dc" },
-      { id: "fire-red", name: "Fire Red", hex: "#d00000" },
-      { id: "navy", name: "Navy", hex: "#000080" },
-      { id: "royal", name: "Royal", hex: "#4169e1" },
-      { id: "military-green", name: "Military Green", hex: "#4b5320" },
-      { id: "silver", name: "Silver", hex: "#c0c0c0" },
+      {
+        id: "white",
+        name: "White",
+        hex: "#FFFFFF",
+        sideImages: {
+          front: "/garments/polo/white-front.png",
+          back: "/garments/polo/white-back.png",
+        },
+      },
+      {
+        id: "black",
+        name: "Black",
+        hex: "#191c1e",
+        sideImages: {
+          front: "/garments/polo/black-front.png",
+          back: "/garments/polo/black-back.png",
+        },
+      },
+      {
+        id: "sky-blue",
+        name: "Sky Blue",
+        hex: "#6bb7ff",
+        sideImages: {
+          front: "/garments/polo/sky-blue-front.png",
+          back: "/garments/polo/sky-blue-back.png",
+        },
+      },
+      {
+        id: "light-pink",
+        name: "Light Pink",
+        hex: "#f4b6cf",
+        sideImages: {
+          front: "/garments/polo/light-pink-front.png",
+          back: "/garments/polo/light-pink-back.png",
+        },
+      },
     ],
     sides: {
-      front:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuBnrHnL5aMPREFXuj1jUYoxja6Fsrp5jvNFs3TNg8znTecEOP3xrpqfTjEL1ibCi3T4b8YPlmN2YMf1yYRi8fdXhr_XB156SwaXK_f-HJorGCZt54oTpJnxDyecj7sRmJ5o3dsLH0hL2AoRp22VIeF7fpZhOvgcAvqJ05TFiwlqyZtan_XXoaygfhmGemlsNYKl8SL7UUdcje3QS8eZs44UHtLO6Iuarc6RtvZa_HTrCIwmoWlY4lKEZGFkLaAHStNL8f-vO6mVF892",
-      back: "https://lh3.googleusercontent.com/aida-public/AB6AXuCEyk_qMpWs9l1eGvyI1lohx-3RTV9itvup4BAWkGUD3oOW5amSiYF2_DXmT30mxvOlczilkVkrvLOcKw6pjS79BXVkIfoW38-XuNwhR4AAFJ3XSyHapZjy8d80ST_KsLo07JShBR_18jcd2w5hhr8-vxjhz_FUuZ5yqWkYf_-RRlu7lfZ-NQi2eItebO-W0RNSqwH_NmiTDrCOeTncDRnX4MtM9BpBxZ8W4D2GGg3xqBsiO_A6SShws2r6MhWVOApmnOuUgULmKpuM",
+      front: "/garments/polo/white-front.png",
+      back: "/garments/polo/white-back.png",
     },
     printableArea: {
       front: { x: 0.28, y: 0.2, width: 0.44, height: 0.55 },
       back: { x: 0.28, y: 0.2, width: 0.44, height: 0.55 },
     },
     printAreas: 2,
-    thumbnailUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIMEE9YWpU3PZeklA1g2AN0-_4DmXFDrnNb6MgPkOnejwefEf8YdPjLO1I-63zKnq4wqyKl3RdeMSMjTtJ2HaenKFQDFFLICly1ozgzUdQVfictpQKZTvC22FCNGdUafJzIxsSu8v7yNJi7_8U6UxcReigjir9fladlEhQHffPGvEZK9btNAQwx98GJQh3jt4GdDF3dLvdAfS1c1EfzVY8vgWGz9mWilfD_Gj6Zi54TxH6jW3kT917HRhXiz6AAmCy4byftPT9Ouf-",
+    thumbnailUrl: "/garments/polo/white-front.png",
   },
   {
     id: "oversized-hoodie",

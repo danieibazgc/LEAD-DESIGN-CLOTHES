@@ -5,7 +5,7 @@
 
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import {
   Stage,
   Layer,
@@ -25,9 +25,135 @@ import type {
   Garment,
   GarmentColor,
 } from "@/lib/types/domain";
-import { useEffect } from "react";
 
-// ── Garment base image ──────────────────────────────────────────────────────
+// ── Garment silhouette drawing helpers ─────────────────────────────────────
+
+/** Darken/lighten a hex color by `amount` (negative = darker) */
+function shadeHex(hex: string, amount: number): string {
+  const clean = hex.replace("#", "").padStart(6, "0");
+  const num = parseInt(clean, 16);
+  const r = Math.max(0, Math.min(255, (num >> 16) + amount));
+  const g = Math.max(0, Math.min(255, ((num >> 8) & 0xff) + amount));
+  const b = Math.max(0, Math.min(255, (num & 0xff) + amount));
+  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, "0")}`;
+}
+
+/** T-shirt silhouette path (normalized 0-1, scaled to w×h) */
+function buildTshirtPath(w: number, h: number): Path2D {
+  const p = new Path2D();
+  // Start at collar left corner
+  p.moveTo(0.36 * w, 0.07 * h);
+  // Collar U-curve
+  p.bezierCurveTo(0.38 * w, 0.18 * h, 0.62 * w, 0.18 * h, 0.64 * w, 0.07 * h);
+  // Right shoulder
+  p.lineTo(0.76 * w, 0.12 * h);
+  // Right sleeve top edge
+  p.bezierCurveTo(0.84 * w, 0.13 * h, 0.94 * w, 0.15 * h, 0.99 * w, 0.20 * h);
+  // Right sleeve outer bottom
+  p.lineTo(0.97 * w, 0.36 * h);
+  // Right armpit curve
+  p.bezierCurveTo(0.87 * w, 0.33 * h, 0.81 * w, 0.32 * h, 0.77 * w, 0.34 * h);
+  // Right body down
+  p.lineTo(0.77 * w, 0.91 * h);
+  // Bottom
+  p.lineTo(0.23 * w, 0.91 * h);
+  // Left body up
+  p.lineTo(0.23 * w, 0.34 * h);
+  // Left armpit curve
+  p.bezierCurveTo(0.19 * w, 0.32 * h, 0.13 * w, 0.33 * h, 0.03 * w, 0.36 * h);
+  // Left sleeve outer bottom
+  p.lineTo(0.01 * w, 0.20 * h);
+  // Left sleeve top edge
+  p.bezierCurveTo(0.06 * w, 0.15 * h, 0.16 * w, 0.13 * h, 0.24 * w, 0.12 * h);
+  // Left shoulder back to collar
+  p.lineTo(0.36 * w, 0.07 * h);
+  p.closePath();
+  return p;
+}
+
+/** Hoodie silhouette path (normalized 0-1, scaled to w×h) */
+function buildHoodiePath(w: number, h: number): Path2D {
+  const p = new Path2D();
+  // Hood left base
+  p.moveTo(0.30 * w, 0.10 * h);
+  // Hood arch over top
+  p.bezierCurveTo(0.28 * w, -0.02 * h, 0.72 * w, -0.02 * h, 0.70 * w, 0.10 * h);
+  // Right shoulder
+  p.lineTo(0.80 * w, 0.16 * h);
+  // Right sleeve top
+  p.bezierCurveTo(0.88 * w, 0.17 * h, 0.96 * w, 0.20 * h, 1.00 * w, 0.26 * h);
+  // Right sleeve bottom
+  p.lineTo(0.97 * w, 0.43 * h);
+  // Right armpit
+  p.bezierCurveTo(0.87 * w, 0.40 * h, 0.81 * w, 0.38 * h, 0.78 * w, 0.40 * h);
+  // Right body
+  p.lineTo(0.78 * w, 0.93 * h);
+  // Bottom
+  p.lineTo(0.22 * w, 0.93 * h);
+  // Left body
+  p.lineTo(0.22 * w, 0.40 * h);
+  // Left armpit
+  p.bezierCurveTo(0.19 * w, 0.38 * h, 0.13 * w, 0.40 * h, 0.03 * w, 0.43 * h);
+  // Left sleeve bottom
+  p.lineTo(0.00 * w, 0.26 * h);
+  // Left sleeve top
+  p.bezierCurveTo(0.04 * w, 0.20 * h, 0.12 * w, 0.17 * h, 0.20 * w, 0.16 * h);
+  // Back to hood
+  p.lineTo(0.30 * w, 0.10 * h);
+  p.closePath();
+  return p;
+}
+
+/** Renders a solid-colored garment silhouette onto an HTMLCanvasElement */
+function buildGarmentCanvas(
+  garmentId: string,
+  colorHex: string,
+  w: number,
+  h: number
+): HTMLCanvasElement {
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d")!;
+
+  // Neutral background
+  ctx.fillStyle = "#EBEBEB";
+  ctx.fillRect(0, 0, w, h);
+
+  const isHoodie = garmentId.includes("hoodie");
+  const path = isHoodie ? buildHoodiePath(w, h) : buildTshirtPath(w, h);
+
+  // Drop shadow
+  ctx.save();
+  ctx.shadowColor = "rgba(0,0,0,0.22)";
+  ctx.shadowBlur = 22;
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 8;
+  ctx.fillStyle = colorHex;
+  ctx.fill(path);
+  ctx.restore();
+
+  // Base color fill (no shadow)
+  ctx.fillStyle = colorHex;
+  ctx.fill(path);
+
+  // Edge / crease stroke
+  ctx.strokeStyle = shadeHex(colorHex, -28);
+  ctx.lineWidth = 1.2;
+  ctx.stroke(path);
+
+  // Subtle lighting gradient
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, "rgba(255,255,255,0.14)");
+  grad.addColorStop(0.45, "rgba(255,255,255,0.00)");
+  grad.addColorStop(1, "rgba(0,0,0,0.09)");
+  ctx.fillStyle = grad;
+  ctx.fill(path);
+
+  return canvas;
+}
+
+// ── Garment base: solid-colored canvas silhouette ───────────────────────────
 
 function GarmentBase({
   garment,
@@ -38,15 +164,43 @@ function GarmentBase({
   selectedColor: GarmentColor | undefined;
   side: "front" | "back";
 }) {
-  const url =
-    selectedColor?.sideImages?.[side] ??
-    garment.sides[side];
-  const [img] = useImage(url, "anonymous");
-  const { canvasSize } = useEditorStore.getState();
+  const canvasSize = useEditorStore((s) => s.canvasSize);
+  const colorHex = selectedColor?.hex ?? "#FFFFFF";
+  const [image, setImage] = useState<HTMLImageElement | null>(null);
 
-  return img ? (
+  useEffect(() => {
+    const img = new window.Image();
+    const colorSideImage =
+      selectedColor?.sideImages?.[side] ??
+      (garment.sides[side].startsWith("/") ? garment.sides[side] : null);
+
+    img.onload = () => setImage(img);
+
+    if (colorSideImage) {
+      img.src = colorSideImage;
+      return;
+    }
+
+    const cvs = buildGarmentCanvas(
+      garment.id,
+      colorHex,
+      canvasSize.width,
+      canvasSize.height
+    );
+    img.src = cvs.toDataURL();
+  }, [
+    garment.id,
+    garment.sides,
+    selectedColor?.sideImages,
+    side,
+    colorHex,
+    canvasSize.width,
+    canvasSize.height,
+  ]);
+
+  return image ? (
     <KonvaImage
-      image={img}
+      image={image}
       x={0}
       y={0}
       width={canvasSize.width}
@@ -132,7 +286,7 @@ function ImageObject({
         onDragEnd={(e) => {
           onChange({ x: e.target.x(), y: e.target.y() });
         }}
-        onTransformEnd={(e) => {
+        onTransformEnd={() => {
           const node = shapeRef.current!;
           onChange({
             x: node.x(),
@@ -226,9 +380,13 @@ function TextObject({
 
 interface EditorCanvasProps {
   stageRef: React.RefObject<Konva.Stage | null>;
+  /** When set, overrides the store's activeSide (used in review page for side-by-side) */
+  forceSide?: "front" | "back";
+  /** When true, hides the printable area overlay (used in review/export) */
+  readOnly?: boolean;
 }
 
-export function EditorCanvas({ stageRef }: EditorCanvasProps) {
+export function EditorCanvas({ stageRef, forceSide, readOnly = false }: EditorCanvasProps) {
   const garment = useEditorStore((s) => s.garment);
   const activeSide = useEditorStore((s) => s.activeSide);
   const objects = useEditorStore((s) => s.objects);
@@ -238,16 +396,20 @@ export function EditorCanvas({ stageRef }: EditorCanvasProps) {
   const selectObject = useEditorStore((s) => s.selectObject);
   const updateObject = useEditorStore((s) => s.updateObject);
 
-  const sideObjects = objects.filter((o) => o.side === activeSide);
+  // forceSide lets the review page pin each canvas to front or back independently
+  const side = forceSide ?? activeSide;
+
+  const sideObjects = objects.filter((o) => o.side === side);
   const selectedColor = garment?.colors.find((c) => c.id === selectedColorId);
 
   const handleStageClick = useCallback(
     (e: Konva.KonvaEventObject<MouseEvent | Event>) => {
+      if (readOnly) return;
       if (e.target === e.target.getStage()) {
         selectObject(null);
       }
     },
-    [selectObject]
+    [selectObject, readOnly]
   );
 
   return (
@@ -265,7 +427,7 @@ export function EditorCanvas({ stageRef }: EditorCanvasProps) {
             <GarmentBase
               garment={garment}
               selectedColor={selectedColor}
-              side={activeSide}
+              side={side}
             />
           )}
 
@@ -296,11 +458,11 @@ export function EditorCanvas({ stageRef }: EditorCanvasProps) {
             );
           })}
 
-          {/* Printable area dashed overlay */}
-          {garment && (
+          {/* Printable area dashed overlay — hidden in read-only/review mode */}
+          {garment && !readOnly && (
             <PrintableAreaRect
               garment={garment}
-              side={activeSide}
+              side={side}
               canvasW={canvasSize.width}
               canvasH={canvasSize.height}
             />

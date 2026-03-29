@@ -18,6 +18,7 @@ import { TopBar } from "@/components/ui/TopBar";
 import { Button } from "@/components/ui/Button";
 import { ExportModal } from "@/components/editor/ExportModal";
 import { cn } from "@/lib/utils/cn";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 // Dynamic import (no SSR) for Konva canvas
 const EditorCanvas = dynamic(
@@ -44,6 +45,7 @@ export default function ReviewPage({ params }: PageProps) {
   const setGarment = useEditorStore((s) => s.setGarment);
   const setActiveSide = useEditorStore((s) => s.setActiveSide);
   const objects = useEditorStore((s) => s.objects);
+  const { t } = useLanguage();
 
   const [showExport, setShowExport] = useState(false);
 
@@ -110,13 +112,13 @@ export default function ReviewPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-background">
       <TopBar
-        title="Review"
-        subtitle="Final Step"
+        title={t("topbar.review")}
+        subtitle={t("topbar.finalStep")}
         actions={
           <div className="flex items-center gap-3">
             <Link href={`/studio/${garmentId}`}>
               <Button variant="ghost" size="sm">
-                ← Back to Editor
+                {t("review.backToEditor")}
               </Button>
             </Link>
             <Button
@@ -124,7 +126,7 @@ export default function ReviewPage({ params }: PageProps) {
               size="sm"
               onClick={() => setShowExport(true)}
             >
-              Export
+              {t("review.export")}
             </Button>
           </div>
         }
@@ -156,7 +158,7 @@ export default function ReviewPage({ params }: PageProps) {
                   className="rounded-2xl overflow-hidden ambient-shadow bg-surface-container cursor-pointer"
                   onClick={() => setActiveSide("front")}
                 >
-                  <EditorCanvas stageRef={frontStageRef} />
+                  <EditorCanvas stageRef={frontStageRef} forceSide="front" readOnly />
                 </div>
               </div>
 
@@ -172,7 +174,7 @@ export default function ReviewPage({ params }: PageProps) {
                   className="rounded-2xl overflow-hidden ambient-shadow bg-surface-container cursor-pointer"
                   onClick={() => setActiveSide("back")}
                 >
-                  <EditorCanvas stageRef={backStageRef} />
+                  <EditorCanvas stageRef={backStageRef} forceSide="back" readOnly />
                 </div>
               </div>
             </div>

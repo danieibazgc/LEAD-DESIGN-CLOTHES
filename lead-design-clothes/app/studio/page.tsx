@@ -12,12 +12,14 @@ import { TopBar } from "@/components/ui/TopBar";
 import { Button } from "@/components/ui/Button";
 import { GARMENTS } from "@/lib/data/garments";
 import type { Garment } from "@/lib/types/domain";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 type Category = "all" | "tops" | "bottoms" | "outerwear" | "accessories";
 
 export default function StudioPage() {
   const [category, setCategory] = useState<Category>("all");
   const [search, setSearch] = useState("");
+  const { t } = useLanguage();
 
   const filtered = useMemo<Garment[]>(() => {
     return GARMENTS.filter((g) => {
@@ -40,12 +42,12 @@ export default function StudioPage() {
   return (
     <div className="min-h-screen bg-background">
       <TopBar
-        title="Studio"
-        subtitle="Catalog"
+        title={t("topbar.studio")}
+        subtitle={t("topbar.catalog")}
         actions={
           <div className="flex items-center gap-3">
             <span className="text-xs text-outline font-label">
-              {GARMENTS.length} garments
+              {t("studio.garmentsCount", { count: GARMENTS.length })}
             </span>
           </div>
         }

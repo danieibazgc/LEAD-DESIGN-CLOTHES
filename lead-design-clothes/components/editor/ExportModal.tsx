@@ -1,28 +1,24 @@
 /**
- * ExportModal — Export configuration + download trigger
+ * ExportModal — Export as ZIP with 4 images (front/back × mockup/print)
  */
 
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import type Konva from "konva";
 import { Button } from "@/components/ui/Button";
-import { exportMockup } from "@/lib/services/mockupExport";
-import type { ExportConfig } from "@/lib/types/domain";
+import { exportAsZip, downloadBlob } from "@/lib/services/mockupExport";
 import { cn } from "@/lib/utils/cn";
 
 interface ExportModalProps {
   onClose: () => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   frontStageRef: React.RefObject<Konva.Stage | null>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   backStageRef: React.RefObject<Konva.Stage | null>;
   garmentName: string;
 }
 
 type Format = "png" | "jpg";
 type Resolution = "standard" | "high" | "ultra";
-type Side = "front" | "back" | "both";
 
 export function ExportModal({
   onClose,
@@ -32,43 +28,30 @@ export function ExportModal({
 }: ExportModalProps) {
   const [format, setFormat] = useState<Format>("png");
   const [resolution, setResolution] = useState<Resolution>("high");
-  const [side, setSide] = useState<Side>("both");
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleExport = async () => {
     setLoading(true);
-    setProgress(10);
-    const sides: Array<"front" | "back"> =
-      side === "both" ? ["front", "back"] : [side];
-
-    for (let i = 0; i < sides.length; i++) {
-      const currentSide = sides[i];
-      const ref = currentSide === "front" ? frontStageRef : backStageRef;
-      setProgress(20 + (i / sides.length) * 60);
-      try {
-        const config: ExportConfig = {
-          format,
-          resolution,
-          side: currentSide,
-          includeGarment: true,
-        };
-        const result = await exportMockup(ref, config);
-        // Slight delay between downloads
-        await new Promise((r) => setTimeout(r, 200));
-        const link = document.createElement("a");
-        link.href = result.dataUrl;
-        link.download = result.fileName;
-        link.click();
-      } catch (err) {
-        console.error("Export failed for side", currentSide, err);
-      }
-      setProgress(20 + ((i + 1) / sides.length) * 60);
+    setDone(false);
+    setError(null);
+    setProgress(0);
+    try {
+      const { blob, fileName } = await exportAsZip(
+        frontStageRef,
+        backStageRef,
+        { format, resolution },
+        (pct) => setProgress(pct)
+      );
+      downloadBlob(blob, fileName);
+      setDone(true);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Export failed");
+    } finally {
+      setLoading(false);
     }
-    setProgress(100);
-    setDone(true);
-    setLoading(false);
   };
 
   const FORMATS: { id: Format; label: string; desc: string }[] = [
@@ -80,12 +63,6 @@ export function ExportModal({
     { id: "standard", label: "Standard", desc: "1×  (~600px)" },
     { id: "high", label: "High", desc: "2×  (~1200px)" },
     { id: "ultra", label: "Ultra 4K", desc: "4×  (~2400px)" },
-  ];
-
-  const SIDES: { id: Side; label: string }[] = [
-    { id: "front", label: "Front only" },
-    { id: "back", label: "Back only" },
-    { id: "both", label: "Both sides" },
   ];
 
   return (
@@ -101,7 +78,7 @@ export function ExportModal({
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-xl font-headline font-extrabold tracking-tight">
-              Export Mockup
+              Export Design
             </h2>
             <p className="text-xs text-outline mt-0.5">{garmentName}</p>
           </div>
@@ -113,6 +90,25 @@ export function ExportModal({
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </button>
+        </div>
+
+        {/* ZIP contents info */}
+        <div className="bg-surface-container rounded-2xl p-4 flex flex-col gap-2">
+          <p className="text-[10px] font-label font-bold text-outline uppercase tracking-widest mb-1">
+            Package contents (4 files)
+          </p>
+          {[
+            { icon: "🎽", name: "front-mockup", desc: "Full front view (polo + diseño)" },
+            { icon: "🖼̆", name: "front-print",  desc: "Solo estampado frontal" },
+            { icon: "🎽", name: "back-mockup",  desc: "Full back view (polo + diseño)" },
+            { icon: "🖼̆", name: "back-print",   desc: "Solo estampado trasero" },
+          ].map((f) => (
+            <div key={f.name} className="flex items-center gap-2">
+              <span className="text-base">{f.icon}</span>
+              <span className="text-xs font-mono text-primary font-bold">{f.name}.{format}</span>
+              <span className="text-[11px] text-outline">— {f.desc}</span>
+            </div>
+          ))}
         </div>
 
         {/* Format */}
@@ -163,29 +159,6 @@ export function ExportModal({
           </div>
         </div>
 
-        {/* Sides */}
-        <div>
-          <p className="text-[10px] font-label font-bold text-outline uppercase tracking-widest mb-2">
-            Sides to Export
-          </p>
-          <div className="grid grid-cols-3 gap-2">
-            {SIDES.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => setSide(s.id)}
-                className={cn(
-                  "py-2 rounded-xl text-xs font-medium transition-all",
-                  side === s.id
-                    ? "bg-primary text-on-primary"
-                    : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
-                )}
-              >
-                {s.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Progress bar */}
         {loading && (
           <div>
@@ -196,9 +169,13 @@ export function ExportModal({
               />
             </div>
             <p className="text-[10px] text-outline mt-1.5 font-label uppercase tracking-widest">
-              Rendering… {Math.round(progress)}%
+              Generating ZIP… {Math.round(progress)}%
             </p>
           </div>
+        )}
+
+        {error && (
+          <p className="text-xs text-error bg-error-container/20 rounded-xl px-3 py-2">{error}</p>
         )}
 
         {done && (
@@ -206,7 +183,7 @@ export function ExportModal({
             <svg className="w-4 h-4 text-tertiary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
             </svg>
-            Download complete!
+            ZIP descargado — 4 imágenes listas para imprimir 🎉
           </div>
         )}
 
@@ -217,14 +194,20 @@ export function ExportModal({
           <Button
             variant="key-action"
             size="md"
-            className="flex-1"
+            className="flex-1 flex items-center justify-center gap-2"
             loading={loading}
             onClick={handleExport}
           >
-            {done ? "Download Again" : "Download"}
+            {!loading && (
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+            )}
+            {done ? "Descargar de nuevo" : "Descargar ZIP"}
           </Button>
         </div>
       </div>
     </div>
   );
 }
+

@@ -1,11 +1,6 @@
 /**
- * backgroundRemoval.ts — Background removal service abstraction
- *
- * MVP: Simulates a delay and returns the original image.
- * TODO: Replace with a real remove-bg API call:
- *   - Remove.bg API: https://www.remove.bg/api
- *   - Clipdrop: https://clipdrop.co/apis/docs/remove-background
- *   - Local: rembg Python service
+ * backgroundRemoval.ts — Background removal powered by @imgly/background-removal
+ * Runs entirely in the browser via WebAssembly + ONNX. No API key required.
  */
 
 import type {
@@ -16,21 +11,20 @@ import type {
 export async function removeBackground(
   req: BackgroundRemovalRequest
 ): Promise<BackgroundRemovalResult> {
-  // TODO: Swap this mock with an actual API call, e.g.:
-  // const formData = new FormData();
-  // formData.append("image_url", req.imageSrc);
-  // const res = await fetch("https://api.remove.bg/v1.0/removebg", {
-  //   method: "POST",
-  //   headers: { "X-Api-Key": process.env.REMOVE_BG_API_KEY! },
-  //   body: formData,
-  // });
-  // const blob = await res.blob();
-  // const resultSrc = URL.createObjectURL(blob);
+  // Dynamically import so the heavy WASM bundle is only loaded when needed
+  const { removeBackground: imglyRemoveBg } = await import(
+    "@imgly/background-removal"
+  );
 
-  // Mock: simulate 1.5s processing delay
-  await new Promise((r) => setTimeout(r, 1500));
+  // Convert data-URL string to a Blob so imgly can process it
+  const blob = await fetch(req.imageSrc).then((r) => r.blob());
 
-  return {
-    resultSrc: req.imageSrc, // MVP: return original unchanged
-  };
+  const resultBlob = await imglyRemoveBg(blob, {
+    // isnet_quint8 is the smallest/fastest variant available
+    model: "isnet_quint8",
+    output: { format: "image/png" },
+  });
+
+  const resultSrc = URL.createObjectURL(resultBlob);
+  return { resultSrc };
 }

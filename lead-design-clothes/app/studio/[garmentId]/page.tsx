@@ -20,6 +20,7 @@ import { LeftToolbar } from "@/components/editor/LeftToolbar";
 import { ContextPanel } from "@/components/editor/ContextPanel";
 import { ObjectInspector } from "@/components/editor/ObjectInspector";
 import { downloadDataUrl } from "@/lib/services/mockupExport";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 // Dynamic import for Konva canvas (no SSR)
 const EditorCanvas = dynamic(
@@ -40,6 +41,7 @@ export default function EditorPage({ params }: PageProps) {
   const activeSide = useEditorStore((s) => s.activeSide);
   const setActiveSide = useEditorStore((s) => s.setActiveSide);
   const objects = useEditorStore((s) => s.objects);
+  const { t } = useLanguage();
 
   const stageRef = useRef<Konva.Stage | null>(null);
 
@@ -62,19 +64,19 @@ export default function EditorPage({ params }: PageProps) {
     <div className="h-screen flex flex-col bg-background overflow-hidden">
       {/* Top bar */}
       <TopBar
-        title={garment?.name ?? "Editor"}
-        subtitle="Studio"
+        title={garment?.name ?? t("topbar.editor")}
+        subtitle={t("topbar.studio")}
         actions={
           <div className="flex items-center gap-3">
             <button
               onClick={handleQuickExport}
               className="text-xs text-on-surface-variant hover:text-on-surface transition-colors font-medium"
             >
-              Quick Export
+              {t("editor.quickExport")}
             </button>
             <Link href={`/studio/${garmentId}/review`}>
               <Button variant="key-action" size="sm">
-                Review & Export
+                {t("editor.reviewExport")}
               </Button>
             </Link>
           </div>

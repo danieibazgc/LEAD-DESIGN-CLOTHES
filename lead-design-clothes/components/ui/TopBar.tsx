@@ -4,6 +4,8 @@
  */
 
 import Link from "next/link";
+import { BrandLogo } from "@/components/ui/BrandLogo";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 interface TopBarProps {
   /** Page title or breadcrumb shown center/left */
@@ -19,13 +21,8 @@ export function TopBar({ title, subtitle, actions }: TopBarProps) {
     <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-8 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/10">
       {/* Brand */}
       <div className="flex items-center gap-6">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-headline font-extrabold text-xl tracking-tighter text-on-surface">
-            LEAD
-          </span>
-          <span className="font-headline font-light text-xl tracking-wide text-primary">
-            Design
-          </span>
+        <Link href="/" className="flex items-center">
+          <BrandLogo className="h-12 sm:h-14" />
         </Link>
 
         {title && (
@@ -46,7 +43,10 @@ export function TopBar({ title, subtitle, actions }: TopBarProps) {
       </div>
 
       {/* Actions slot */}
-      <div className="flex items-center gap-3">{actions}</div>
+      <div className="flex items-center gap-3">
+        <LanguageSwitcher />
+        {actions}
+      </div>
     </header>
   );
 }

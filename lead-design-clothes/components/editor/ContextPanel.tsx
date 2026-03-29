@@ -10,6 +10,7 @@ import { ColorPanel } from "./ColorPanel";
 import { LayersPanel } from "./LayersPanel";
 import { TextToolPanel } from "./TextToolPanel";
 import { AIGeneratorPanel } from "./AIGeneratorPanel";
+import { AIBackgroundRemovalPanel } from "./AIBackgroundRemovalPanel";
 
 export function ContextPanel() {
   const activePanel = useEditorStore((s) => s.activePanel);
@@ -23,6 +24,7 @@ export function ContextPanel() {
       {activePanel === "layers" && <LayersPanel />}
       {activePanel === "text" && <TextToolPanel />}
       {activePanel === "ai" && <AIGeneratorPanel />}
+      {activePanel === "bg-remove" && <AIBackgroundRemovalPanel />}
     </div>
   );
 }

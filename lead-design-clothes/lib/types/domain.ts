@@ -140,6 +140,7 @@ export type ActivePanel =
   | "text"
   | "layers"
   | "ai"
+  | "bg-remove"
   | null;
 
 // ─── Layer ────────────────────────────────────────────────────────────────────
